@@ -10,10 +10,10 @@ const Hero = () => {
   const texts = [
     'Ubuntu v22.04.0',
     'ThinkPad X1 Carbon',
-    '5.15.0-dev',
+    '5.15.0-Jellyfish',
     '45 days, 17 hours',
     'JavaScript, Python, Go',
-    'VSCode / Neovim',
+    'VSCode / Trae',
     'React, Next.js, TailwindCSS',
   ];
 
