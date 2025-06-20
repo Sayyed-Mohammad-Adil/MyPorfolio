@@ -33,12 +33,12 @@ const About = () => {
 
   const animateSkills = () => {
     const targets = { frontend: 90, backend: 85, devops: 75, mobile: 65 };
-    
+
     Object.keys(targets).forEach((skill) => {
       let current = 0;
       const target = targets[skill as keyof typeof targets];
       const increment = target / 60; // 60 frames for smooth animation
-      
+
       const animate = () => {
         current += increment;
         if (current >= target) {
@@ -48,7 +48,7 @@ const About = () => {
           requestAnimationFrame(animate);
         }
       };
-      
+
       setTimeout(() => requestAnimationFrame(animate), Math.random() * 500);
     });
   };
@@ -69,7 +69,7 @@ const About = () => {
             Passionate developer with a love for clean code, strong coffee, and open source contributions.
           </p>
         </div>
-        
+
         <div className="relative lg:max-w-5xl mx-auto lg:px-12">
           {/* GitHub Contribution Grid */}
           <div className="bg-gray-950 rounded-lg p-4 lg:p-6 shadow-2xl border border-gray-800 mb-8">
@@ -77,11 +77,12 @@ const About = () => {
             <div className="flex justify-between items-center border-b border-gray-700 pb-4 mb-4">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" 
-                    alt="Programmer" 
-                    className="w-8 h-8 object-cover"
+                  <img
+                    src="/public/723a59af-6724-4a39-9949-defb49f5695f.jpg"
+                    alt="Client avatar"
+                    className="w-[100px] h-[100px] rounded-full object-cover"
                   />
+
                 </div>
                 <span className="text-gray-300 font-semibold hidden sm:inline-block">github.com/sayyedmohammadadil</span>
               </div>
@@ -100,9 +101,9 @@ const About = () => {
                 </div>
               </div>
             </div>
-            
+
             <ContributionGrid />
-            
+
             {/* Name and Role */}
             <div className="text-center mt-10 mb-6">
               <h3 className="text-2xl lg:text-3xl font-bold font-code text-white mb-2">
@@ -112,11 +113,11 @@ const About = () => {
                 Full-Stack Developer & Open Source Enthusiast
               </p>
             </div>
-            
+
             {/* Fork My Portfolio CTA */}
             <div className="flex justify-center mb-4">
-              <a 
-                href="#" 
+              <a
+                href="https://github.com/Sayyed-Mohammad-Adil/MyPorfolio"
                 className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 transition-all transform hover:scale-105 shadow-lg"
               >
                 <Github size={20} className="text-green-400" />
@@ -140,7 +141,7 @@ const About = () => {
               <p className="text-gray-300 leading-relaxed">
                 When I'm not coding, you can find me exploring new technologies, writing tech articles, or enjoying a fresh cup of coffee while debugging complex problems.
               </p>
-              
+
               {/* GitHub Stats */}
               <div className="mt-6 grid grid-cols-3 gap-2 text-center">
                 <div className="bg-gray-700/20 p-3 rounded">
@@ -157,14 +158,14 @@ const About = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Skills */}
             <div className="bg-gray-950 rounded-lg p-6 border border-gray-800 shadow-lg">
               <h3 className="text-xl font-bold font-code text-white mb-4 flex items-center gap-2">
                 <Code className="text-green-400" size={20} />
                 My Toolbox
               </h3>
-              
+
               <div className="space-y-4">
                 {Object.entries(skillProgress).map(([skill, progress]) => (
                   <div key={skill}>
@@ -181,7 +182,7 @@ const About = () => {
                   </div>
                 ))}
               </div>
-           
+
               {/* Technology Tags */}
               <div className="mt-6 flex flex-wrap gap-2">
                 {technologies.map((tech) => (
@@ -197,7 +198,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Background Elements */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
         <div className="absolute top-40 right-28 lg:right-40 w-48 h-48">
