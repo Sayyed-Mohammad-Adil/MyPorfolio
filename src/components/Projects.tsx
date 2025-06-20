@@ -4,31 +4,31 @@ import { CheckSquare, ShoppingCart, User, Github, ExternalLink } from 'lucide-re
 const Projects = () => {
   const projects = [
     {
-      title: 'Taskify App',
+      title: 'Priortiq',
       description: 'A task management app with real-time collaboration, built using React, Node.js, and MongoDB.',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      image: '/public/images/projects/Priortiq.png',
       technologies: ['React', 'Node.js', 'MongoDB'],
       icon: <CheckSquare className="text-green-400 led-glow" />,
-      githubUrl: '#',
-      liveUrl: '#'
+      githubUrl: 'https://github.com/Sayyed-Mohammad-Adil/Prioritiq',
+      liveUrl: 'https://prioritiq.vercel.app/'
     },
     {
-      title: 'E-Shop Platform',
-      description: 'A scalable e-commerce platform with Next.js, Stripe payments, and TailwindCSS.',
-      image: 'https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      title: 'EliteSell',
+      description: 'A scalable e-commerce platform with Next.js, Node.js, Stripe payments, and TailwindCSS.',
+      image: '/public/images/projects/elitesell.png',
       technologies: ['Next.js', 'Stripe', 'TailwindCSS'],
       icon: <ShoppingCart className="text-green-400 led-glow" />,
-      githubUrl: '#',
-      liveUrl: '#'
+      githubUrl: 'https://github.com/Sayyed-Mohammad-Adil/EliteSell',
+      liveUrl: 'https://elitesell.vercel.app/'
     },
     {
-      title: 'Portfolio Site',
-      description: 'My personal portfolio showcasing my work, built with HTML, TailwindCSS, and Alpine.js.',
-      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      title: 'Portfolio',
+      description: 'My personal portfolio showcasing my work, built with HTML, TailwindCSS, and React.js.',
+      image: '/public/images/projects/Portfolio.png',
       technologies: ['HTML', 'TailwindCSS', 'Alpine.js'],
       icon: <User className="text-green-400 led-glow" />,
-      githubUrl: '#',
-      liveUrl: '#'
+      githubUrl: 'https://github.com/Sayyed-Mohammad-Adil/MyPorfolio',
+      liveUrl: 'https://sma-dev.lovable.app/'
     }
   ];
 
@@ -49,14 +49,14 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div 
+            <div
               key={index}
               className="bg-gray-950 rounded-lg flex flex-col border border-gray-800 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
             >
               <div className="relative group overflow-hidden rounded-t-lg">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-48 object-cover transition-transform group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -76,7 +76,7 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="p-6 flex-1 flex flex-col">
                 <h3 className="text-xl font-bold font-code text-white mb-2 flex items-center gap-2">
                   {project.icon} {project.title}

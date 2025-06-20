@@ -116,7 +116,10 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({ typingLin
                       <span className="text-purple-400">Frameworks:</span>{" "}
                       <span className="text-gray-300">{getLine(6)}</span>
                     </pre>
-
+                    <pre>
+                      <span className="text-purple-400">Vesrsion:</span>{" "}
+                      <span className="text-gray-300">{getLine(7)}</span>
+                    </pre>
 
                   </div>
 

@@ -15,6 +15,7 @@ const Hero = () => {
     'JavaScript, Python, Go',
     'VSCode / Trae',
     'React, Next.js, TailwindCSS',
+    'v-1.0.0',
   ];
 
   useEffect(() => {

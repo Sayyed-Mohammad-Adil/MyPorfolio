@@ -4,48 +4,49 @@ import { Star } from 'lucide-react';
 const Testimonials = () => {
   const testimonials = [
     {
-      name: 'Sarah Mitchell',
-      avatar: 'https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      role: 'CEO, TechTrend',
-      quote: 'Sayyed\'s expertise in React and Node.js transformed our app\'s performance. His attention to detail is unmatched!',
+      name: 'Riya Sharma',
+      avatar: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+      role: 'CTO, BharatTech',
+      quote: "Sayyed's expertise in React and Node.js transformed our app's performance. His attention to detail is unmatched!",
       rating: 5
     },
     {
-      name: 'Michael Chen',
-      avatar: 'https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      role: 'Product Manager, InnovateCo',
+      name: 'Arjun Mehta',
+      avatar: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+      role: 'Product Manager, CodeForge India',
       quote: 'Working with Sayyed was a breeze. He delivered clean, efficient code ahead of schedule.',
       rating: 4
     },
     {
-      name: 'Emily Davis',
-      avatar: 'https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      role: 'Founder, StartUpX',
+      name: 'Priya Iyer',
+      avatar: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+      role: 'Founder, StartIndus',
       quote: 'Sayyed\'s creative solutions and dedication made our project a success. Highly recommend!',
       rating: 5
     },
     {
-      name: 'David Johnson',
-      avatar: 'https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      role: 'CTO, WebCore Solutions',
-      quote: 'Sayyed brought fresh ideas and robust architecture to our development team. He\'s a true professional.',
+      name: 'Rohan Deshmukh',
+      avatar: 'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+      role: 'Tech Lead, DevDynamos',
+      quote: "Sayyed brought fresh ideas and robust architecture to our development team. He's a true professional.",
       rating: 5
     },
     {
-      name: 'Anna Lee',
-      avatar: 'https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      role: 'Design Lead, Creativa',
+      name: 'Sneha Kapoor',
+      avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+      role: 'Design Lead, PixelKraft',
       quote: 'His collaboration with the design team was seamless. The final UI exceeded expectations!',
       rating: 4
     },
     {
-      name: 'Vivian Gomez',
-      avatar: 'https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      role: 'Marketing Director, BrandReach',
+      name: 'Amit Reddy',
+      avatar: 'https://images.pexels.com/photos/4307869/pexels-photo-4307869.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+      role: 'Marketing Director, DigiWave',
       quote: 'From code quality to communication, Sayyed delivers top-tier results every time.',
       rating: 5
     }
   ];
+  
 
   return (
     <section id="reviews" className="py-20 bg-gray-900/50 relative flex items-center justify-center">
