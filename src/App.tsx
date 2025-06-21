@@ -13,9 +13,9 @@ import BackToTop from './components/BackToTop';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 overflow-x-hidden">
+    <div className="min-h-screen bg-gray-950 text-gray-100">
       <Header />
-      <main className="w-full max-w-[100vw] px-4 sm:px-6 lg:px-8">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Hero />
         <TechStack />
         <About />

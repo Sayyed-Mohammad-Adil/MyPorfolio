@@ -6,7 +6,7 @@ const Projects = () => {
     {
       title: 'Priortiq',
       description: 'A task management app with real-time collaboration, built using React, Node.js, and MongoDB.',
-      image: '/public/images/projects/Priortiq.png',
+      image: '/images/projects/Priortiq.png',
       technologies: ['React', 'Node.js', 'MongoDB'],
       icon: <CheckSquare className="text-green-400 led-glow" />,
       githubUrl: 'https://github.com/Sayyed-Mohammad-Adil/Prioritiq',
@@ -15,7 +15,7 @@ const Projects = () => {
     {
       title: 'EliteSell',
       description: 'A scalable e-commerce platform with Next.js, Node.js, Stripe payments, and TailwindCSS.',
-      image: '/public/images/projects/elitesell.png',
+      image: '/images/projects/elitesell.png',
       technologies: ['Next.js', 'Stripe', 'TailwindCSS'],
       icon: <ShoppingCart className="text-green-400 led-glow" />,
       githubUrl: 'https://github.com/Sayyed-Mohammad-Adil/EliteSell',
@@ -24,7 +24,7 @@ const Projects = () => {
     {
       title: 'Portfolio',
       description: 'My personal portfolio showcasing my work, built with HTML, TailwindCSS, and React.js.',
-      image: '/public/images/projects/Portfolio.png',
+      image: '/images/projects/Portfolio.png',
       technologies: ['HTML', 'TailwindCSS', 'Alpine.js'],
       icon: <User className="text-green-400 led-glow" />,
       githubUrl: 'https://github.com/Sayyed-Mohammad-Adil/MyPorfolio',
@@ -33,8 +33,8 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-900/50 relative flex items-center justify-center">
-      <div className="max-w-6xl mx-auto px-4 lg:px-12 relative z-10">
+    <section id="projects" className="py-20 bg-gray-900/50 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold font-code inline-block relative text-white mb-1">
@@ -47,17 +47,17 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-950 rounded-lg flex flex-col border border-gray-800 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+              className="bg-gray-950 rounded-lg flex flex-col border border-gray-800 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 overflow-hidden"
             >
-              <div className="relative group overflow-hidden rounded-t-lg">
+              <div className="relative group overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform group-hover:scale-105"
+                  className="w-full h-48 object-cover object-center transition-transform group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <div className="flex gap-4">

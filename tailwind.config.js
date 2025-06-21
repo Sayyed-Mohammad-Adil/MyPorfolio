@@ -25,7 +25,7 @@ export default {
                 }
             },
             backgroundImage: {
-                'hero': "url('/public/images/pattern-code.svg')", // <- Update this path
+                'hero': "url('/images/pattern-code.svg')", // Remove 'public' from path
             },
         },
     },

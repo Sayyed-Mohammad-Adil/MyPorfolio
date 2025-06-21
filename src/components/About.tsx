@@ -78,7 +78,7 @@ const About = () => {
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center overflow-hidden">
                   <img
-                    src="/public/723a59af-6724-4a39-9949-defb49f5695f.jpg"
+                    src="/723a59af-6724-4a39-9949-defb49f5695f.jpg"
                     alt="Client avatar"
                     className="w-[100px] h-[100px] rounded-full object-cover"
                   />
@@ -136,7 +136,7 @@ const About = () => {
                 Who I Am
               </h3>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                I'm a passionate developer with 5+ years of experience building web applications and contributing to open source projects. I specialize in creating clean, efficient, and maintainable code.
+                I'm a passionate developer with 4+ years of experience building web applications and contributing to open source projects. I specialize in creating clean, efficient, and maintainable code.
               </p>
               <p className="text-gray-300 leading-relaxed">
                 When I'm not coding, you can find me exploring new technologies, writing tech articles, or enjoying a fresh cup of coffee while debugging complex problems.
@@ -168,19 +168,12 @@ const About = () => {
 
               <div className="space-y-4">
                 {Object.entries(skillProgress).map(([skill, progress]) => (
-                  <div key={skill}>
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-gray-300 capitalize">{skill}</span>
-                      <span className="text-gray-400 text-sm">{progress}%</span>
-                    </div>
-                    <div className="h-2 bg-gray-700 rounded-full">
-                      <div
-                        className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${progress}%` }}
-                      ></div>
-                    </div>
+                  <div key={skill} className="flex justify-between items-center mb-2 border-b border-gray-800 pb-2">
+                    <span className="text-gray-300 capitalize">🔘 {skill}</span>
+                    {/* <span className="text-green-400 font-mono">{progress}%</span> */}
                   </div>
                 ))}
+
               </div>
 
               {/* Technology Tags */}
