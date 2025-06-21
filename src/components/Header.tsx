@@ -49,16 +49,16 @@ const Header = () => {
   ];
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${
+    <header className={`sticky top-0 z-50 transition-all duration-300 w-full ${
       isScrolled ? 'bg-gray-950/95 backdrop-blur-sm border-b border-gray-800' : 'bg-transparent'
     }`}>
-      <nav className="max-w-6xl mx-auto px-4 lg:px-12 py-6 flex justify-between items-center">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-4 sm:py-6 flex justify-between items-center">
         <button 
           onClick={() => scrollToSection('hero')}
-          className="flex items-center gap-3"
+          className="flex items-center gap-2 sm:gap-3"
         >
-          <Code className="text-green-400 text-2xl led-glow" />
-          <span className="text-xl font-bold text-white font-code">Sayyed Mohammad Adil</span>
+          <Code className="text-green-400 text-xl sm:text-2xl led-glow" />
+          <span className="text-lg sm:text-xl font-bold text-white font-code truncate">Sayyed Mohammad Adil</span>
         </button>
         
         <div className="hidden md:flex items-center gap-10">
