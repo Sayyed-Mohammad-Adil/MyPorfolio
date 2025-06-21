@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 interface WorkspaceIllustrationProps {
   typingLines: string[];
+    showLaptop: boolean;
+
 }
 
-const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({ typingLines }) => {
+const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({ typingLines,showLaptop }) => {
   const getLine = (index: number) => typingLines[index] || '';
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -60,9 +62,9 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({ typingLin
 
 
         {/* Monitor */}
-        <div className="absolute top-0 left-1/2 w-4/5 transform -translate-x-1/2 aspect-video bg-black rounded-lg border border-gray-600 shadow-2xl flex flex-col mb-24">
+        <div className="absolute top-0 left-1/2 w-4/5 transform -translate-x-1/2 aspect-video bg-black rounded-lg border border-gray-600 shadow-2xl flex flex-col mb-0">
           {/* Monitor Stand */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full w-1/2 h-4 bg-gray-800 rounded-b-sm"></div>
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full w-1/2 h-4 bg-gray-600 rounded-b-sm"></div>
 
           {/* Monitor Screen */}
           <div className="flex-1 p-4 bg-gray-700 rounded-lg relative">
@@ -180,8 +182,8 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({ typingLin
           </div>
         </div>
         {/* Laptop */}
-        <div className={`absolute bottom-2 right-8 w-2/5 aspect-video transition-all duration-1000 ${isAnimating ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-          {/* Laptop Stand */}
+        <div className={`absolute bottom-2 right-8 w-2/5 aspect-video transition-all duration-[2000ms] ease-in-out ${showLaptop ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+        {/* Laptop Stand */}
           <div className="absolute bottom-2 sm:bottom-8 w-full h-4 bg-gray-700 rounded-b-sm"></div>
 
           {/* Laptop Screen */}

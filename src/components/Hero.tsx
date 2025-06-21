@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Code, Mail } from 'lucide-react';
 import WorkspaceIllustration from './WorkspaceIllustration';
 
@@ -6,6 +6,8 @@ const Hero = () => {
   const [typedLines, setTypedLines] = useState<string[]>([]);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [currentLineText, setCurrentLineText] = useState('');
+  const [startTyping, setStartTyping] = useState(false); // 👈 Trigger flag
+  const workspaceRef = useRef<HTMLDivElement>(null);
 
   const texts = [
     'Ubuntu v22.04.0',
@@ -18,8 +20,31 @@ const Hero = () => {
     'v-1.0.0',
   ];
 
+  // 👁️ Intersection Observer to trigger typing when visible
   useEffect(() => {
-    if (currentLineIndex >= texts.length) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !startTyping) {
+          setStartTyping(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (workspaceRef.current) {
+      observer.observe(workspaceRef.current);
+    }
+
+    return () => {
+      if (workspaceRef.current) {
+        observer.unobserve(workspaceRef.current);
+      }
+    };
+  }, [startTyping]);
+
+  // ✍️ Typing logic
+  useEffect(() => {
+    if (!startTyping || currentLineIndex >= texts.length) return;
 
     const fullText = texts[currentLineIndex];
     let charIndex = 0;
@@ -27,21 +52,19 @@ const Hero = () => {
     const interval = setInterval(() => {
       if (charIndex < fullText.length) {
         setCurrentLineText(fullText.slice(0, charIndex + 1));
-
         charIndex++;
       } else {
         clearInterval(interval);
         setTimeout(() => {
-          setTypedLines(prev => [...prev, fullText]);
+          setTypedLines((prev) => [...prev, fullText]);
           setCurrentLineText('');
-          setCurrentLineIndex(prev => prev + 1);
+          setCurrentLineIndex((prev) => prev + 1);
         }, 500);
-        
       }
-    }, 100);
+    }, 80);
 
     return () => clearInterval(interval);
-  }, [currentLineIndex]);
+  }, [startTyping, currentLineIndex]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -88,8 +111,11 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="w-full xl:w-20/100 mx-auto relative mb-12">
-            <WorkspaceIllustration typingLines={[...typedLines, currentLineText]} />
+          <div ref={workspaceRef} className="w-full xl:w-20/100 mx-auto relative">
+            <WorkspaceIllustration
+              typingLines={[...typedLines, currentLineText]}
+              showLaptop={typedLines.length === texts.length} // 👈 Show only after typing ends
+            />
           </div>
         </div>
       </div>

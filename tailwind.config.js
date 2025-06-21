@@ -15,8 +15,8 @@ export default {
                 'code': ['Fira Code', 'monospace'],
             },
             animation: {
-                'marquee': 'marquee 25s linear infinite',
-                'spin-slow': 'spin 20s linear infinite',
+                'marquee': 'marquee 80s linear infinite',
+                'spin-slow': 'spin 50s linear infinite',
             },
             keyframes: {
                 marquee: {

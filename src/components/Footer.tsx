@@ -5,8 +5,8 @@ const Footer = () => {
   const quickLinks = [
     { name: 'About', href: '#about', icon: <User size={14} /> },
     { name: 'Projects', href: '#projects', icon: <Code size={14} /> },
-    { name: 'Services', href: '#', icon: <Gear size={14} /> },
-    { name: 'Pricing', href: '#', icon: <DollarSign size={14} /> },
+    // { name: 'Services', href: '#', icon: <Gear size={14} /> },
+    // { name: 'Pricing', href: '#', icon: <DollarSign size={14} /> },
     { name: 'Blogs', href: '#blog', icon: <Book size={14} /> },
     { name: 'Contact', href: '#contact', icon: <Mail size={14} /> },
   ];
