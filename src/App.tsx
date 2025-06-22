@@ -13,18 +13,19 @@ import BackToTop from './components/BackToTop';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 overflow-x-hidden">
+    <div className="min-h-screen bg-gray-950 text-gray-100">
       <Header />
-      <main className="w-full">
-        {/* Each section is full width and internally responsive */}
-        <Hero />
-        <TechStack />
-        <About />
-        <CTA />
-        <Projects />
-        <Blog />
-        <Testimonials />
-        <Contact />
+      <main>
+      <div className="max-w-8xl mx-auto">
+      <Hero />
+          <TechStack />
+          <About />
+          <CTA />
+          <Projects />
+          <Blog />
+          <Testimonials />
+          <Contact />
+        </div>
       </main>
       <Footer />
       <BackToTop />
