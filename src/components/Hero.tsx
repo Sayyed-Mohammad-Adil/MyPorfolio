@@ -86,7 +86,7 @@ const Hero = () => {
               <h1 className="text-4xl lg:text-6xl font-bold font-code tracking-tight text-white">
                 Sayyed Mohammad Adil
               </h1>
-            </div>
+            </div>  
 
             <p className="text-lg text-gray-300 max-w-xl mx-auto leading-relaxed">
               Crafting elegant solutions to complex problems with clean code and innovative thinking.
