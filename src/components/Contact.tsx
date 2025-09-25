@@ -202,7 +202,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+                  className="w-full px-6 py-3 bg-blue-600 dark:bg-yellow-600 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2"
                 >
                   <Send size={20} />
                   <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
@@ -268,9 +268,9 @@ const Contact = () => {
             </div>
             <div className="absolute w-6 h-1 bg-white/20 rounded-full left-3 top-3"></div>
             {/* Steam Elements */}
-<div className="absolute w-1.5 h-4 bg-gray-700 bg-opacity-30 dark:bg-white dark:bg-opacity-30 rounded-full left-4 -top-2 steam steam1"></div>
-<div className="absolute w-1.5 h-4 bg-gray-700 bg-opacity-30 dark:bg-white dark:bg-opacity-30 rounded-full left-6 -top-4 steam steam2"></div>
-<div className="absolute w-1.5 h-4 bg-gray-700 bg-opacity-30 dark:bg-white dark:bg-opacity-30 rounded-full left-8 -top-3 steam steam3"></div>
+            <div className="absolute w-1.5 h-4 bg-gray-700 bg-opacity-30 dark:bg-white dark:bg-opacity-30 rounded-full left-4 -top-2 steam steam1"></div>
+            <div className="absolute w-1.5 h-4 bg-gray-700 bg-opacity-30 dark:bg-white dark:bg-opacity-30 rounded-full left-6 -top-4 steam steam2"></div>
+            <div className="absolute w-1.5 h-4 bg-gray-700 bg-opacity-30 dark:bg-white dark:bg-opacity-30 rounded-full left-8 -top-3 steam steam3"></div>
 
             <div className="absolute left-2 bottom-3 text-[8px] tracking-widest">COFFEE</div>
           </div>

@@ -50,7 +50,11 @@ const Footer = () => {
   return (
     <footer className="bg-white dark:bg-gray-950 py-16 relative flex items-center justify-center">
       {/* Pattern */}
-      <div className="absolute inset-0 bg-hero opacity-[.03]"></div>
+      {/* <div className="absolute inset-0 bg-hero opacity-[.03]"></div> */}
+            <div className="absolute inset-0 bg-hero-light dark:hidden opacity-[.20] z-0"></div>
+
+      {/* Dark mode */}
+      <div className="absolute inset-0 hidden dark:block bg-hero-dark dark:opacity-[.03] z-0"></div>
       <div className="max-w-6xl mx-auto px-4 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-6 md:col-span-2">
@@ -115,7 +119,7 @@ const Footer = () => {
 
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+                className="w-full px-4 py-2 bg-blue-600 dark:bg-yellow-600 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2"
               >
                 <Send size={16} />
                 Subscribe
