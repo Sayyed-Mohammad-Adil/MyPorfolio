@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Github, Linkedin,Instagram, Twitter, Heart, Coffee, User, Link, Heart as Gear, DollarSign, Book, Mail, Send } from 'lucide-react';
+import { Code, Github, Linkedin, Instagram, Twitter, Heart, Coffee, User, Link, Heart as Gear, DollarSign, Book, Mail, Send } from 'lucide-react';
 
 const Footer = () => {
   const quickLinks = [
@@ -48,17 +48,17 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-950 py-16 relative flex items-center justify-center">
+    <footer className="bg-white dark:bg-gray-950 py-16 relative flex items-center justify-center">
       {/* Pattern */}
       <div className="absolute inset-0 bg-hero opacity-[.03]"></div>
       <div className="max-w-6xl mx-auto px-4 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-6 md:col-span-2">
             <div className="flex items-center gap-3">
-              <Code className="text-green-400 text-3xl led-glow" />
-              <span className="text-2xl font-bold text-white font-code">Sayyed Mohammad Adil</span>
+              <Code className="text-blue-600 dark:text-yellow-400 text-3xl led-glow" />
+              <span className="text-2xl font-bold text-gray-900 dark:text-white font-code">Sayyed Mohammad Adil</span>
             </div>
-            <p className="text-gray-300 leading-relaxed pe-6 lg:pe-16">
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed pe-6 lg:pe-16">
               Building the future with clean code, creativity, and a passion for innovation.
             </p>
             <div className="flex gap-5">
@@ -66,18 +66,18 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.href}
-                  className="text-gray-300 hover:text-green-400 text-xl transition-all transform hover:scale-110"
-                  aria-label={social.label}
+                  className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-yellow-400 text-xl transition-all transform hover:scale-110"
+                  aria-label={social.name}
                 >
                   {social.icon}
                 </a>
               ))}
             </div>
           </div>
-          
+
           <div>
-            <h3 className="text-xl font-bold font-code text-white mb-6 flex items-center gap-2">
-              <Link className="text-green-400" size={20} />
+            <h3 className="text-xl font-bold font-code text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+              <Link className="text-blue-600 dark:text-yellow-400" size={20} />
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -85,7 +85,7 @@ const Footer = () => {
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-300 hover:text-green-400 transition-colors flex items-center gap-2"
+                    className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-yellow-400 transition-colors flex items-center gap-2"
                   >
                     {link.icon} {link.name}
                   </button>
@@ -93,22 +93,29 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-xl font-bold font-code text-white mb-6 flex items-center gap-2">
-              <Mail className="text-green-400" size={20} />
+            <h3 className="text-xl font-bold font-code text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+              <Mail className="text-blue-600 dark:text-yellow-400" size={20} />
               Newsletter
             </h3>
-            <p className="text-gray-300 mb-4">Stay updated with my latest projects and tech insights.</p>
+            <p className=" text-gray-700 dark:text-gray-300 mb-4">Stay updated with my latest projects and tech insights.</p>
             <form className="space-y-3">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 focus:outline-none focus:border-green-400 transition-colors"
+                className="w-full px-4 py-2 
+             bg-white text-gray-900 
+             dark:bg-gray-800 dark:text-gray-300 
+             border border-gray-300 dark:border-gray-700 
+             rounded-lg 
+             focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 
+             transition-colors"
               />
+
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-green-500 text-gray-900 font-bold rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
+                className="w-full px-4 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
               >
                 <Send size={16} />
                 Subscribe
@@ -118,15 +125,15 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-300 text-sm flex items-center gap-2">
-            &copy; {new Date().getFullYear()} Sayyed Mohammad Adil. Crafted with 
-            <Heart className="text-green-400 fill-current" size={16} />
-            and 
-            <Coffee className="text-green-400" size={16} />
+          <p className="text-gray-900 dark:text-gray-300 text-sm flex items-center gap-2">
+            &copy; {new Date().getFullYear()} Sayyed Mohammad Adil. Crafted with
+            <Heart className="text-blue-400 dark:text-yellow-400 fill-current" size={16} />
+            and
+            <Coffee className="text-blue-400 dark:text-yellow-400" size={16} />
           </p>
-          <div className="flex gap-6 text-gray-300 text-sm">
-            <a href="#" className="hover:text-green-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-green-400 transition-colors">Terms of Service</a>
+          <div className="flex gap-6 text-gray-900 dark:text-gray-300 text-sm">
+            <a href="#" className="hover:text-blue-400 dark:hover:text-yellow-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-blue-400 dark:hover:text-yellow-400 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

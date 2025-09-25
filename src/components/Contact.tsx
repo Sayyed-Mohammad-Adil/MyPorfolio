@@ -123,71 +123,77 @@ const Contact = () => {
     },
   ];
   return (
-    <section id="contact" className="py-16 bg-gray-900/50 relative flex items-center justify-center">
+    <section id="contact" className="py-16 bg-gray-100/50 dark:bg-gray-900/50 relative flex items-center justify-center">
       <div className="max-w-6xl mx-auto px-4 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold font-code inline-block relative text-white mb-1">
-            Get in <span className="text-green-400">Touch</span>
-            <div className="absolute -bottom-2 left-0 w-full h-1 bg-green-500 opacity-70"></div>
+          <h2 className="text-3xl lg:text-4xl font-bold font-code inline-block relative text-gray-900 dark:text-white mb-1">
+            Get in <span className="text-blue-400 dark:text-yellow-400">Contact</span>
+            <div className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400 dark:bg-yellow-400 opacity-70"></div>
           </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
             Have a project in mind or just want to chat about code? Drop me a message, and let's make things happen!
           </p>
         </div>
 
         {/* Contact Content */}
-        <div className="relative overflow-hidden bg-gray-950 p-8 rounded-lg border border-gray-800 shadow-lg flex items-center justify-center">
+        <div className="relative overflow-hidden bg-white dark:bg-gray-950 p-8 rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg flex items-center justify-center">
           {/* Table decoration */}
-          <div className="absolute -bottom-20 -right-20 w-56 h-56 bg-gray-800/20 border-2 border-gray-700 rounded-full flex items-center justify-center overflow-hidden">
-            <div className="w-full h-full bg-hero opacity-[.03] bg-cover bg-center"></div>
+          <div className="absolute -bottom-20 -right-20 w-56 h-56 bg-gray-100/20 dark:bg-gray-800/20 border-2 border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center overflow-hidden">
+            {/* <div className="w-full h-full bg-hero opacity-[.03] bg-cover bg-center"></div> */}
+            {/* Light Mode Background */}
+            <div className="w-full h-full bg-hero-light opacity-[.40] bg-cover bg-center dark:hidden"></div>
+
+            {/* Dark Mode Background */}
+            <div className="w-full h-full bg-hero-dark opacity-[.03] bg-cover bg-center hidden dark:block"></div>
+
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative w-full">
             {/* Contact Form */}
             <div className="relative">
-              <h3 className="text-xl font-bold font-code text-white mb-6 flex items-center gap-2">
-                <Mail className="text-green-400 led-glow" />
+              <h3 className="text-xl font-bold font-code text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                <Mail className="text-blue-600 dark:text-yellow-400 led-glow" />
                 Send a Message
               </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-gray-300 mb-2 font-medium">Name</label>
+                  <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Name</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 focus:outline-none focus:border-green-400 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors"
                     placeholder="Your Name"
                     required
                   />
                   {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-300 mb-2 font-medium">Email</label>
+                  <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Email</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 focus:outline-none focus:border-green-400 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors"
                     placeholder="Your Email"
                     required
                   />
                   {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-gray-300 mb-2 font-medium">Message</label>
+                  <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Message</label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 focus:outline-none focus:border-green-400 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors resize-none"
                     placeholder="Your Message"
                     required
                   />
@@ -196,12 +202,12 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3 bg-green-500 text-gray-900 font-bold rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
+                  className="w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
                 >
                   <Send size={20} />
                   <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                 </button>
-                {success && <p className="text-green-400 text-center mt-4">Message sent successfully!</p>}
+                {success && <p className="text-blue-400 dark:text-yellow-400 text-center mt-4">Message sent successfully!</p>}
                 {error && <p className="text-red-400 text-center mt-4">{error}</p>}
               </form>
             </div>
@@ -216,12 +222,12 @@ const Contact = () => {
                 <ul className="space-y-4 text-gray-300">
                   {contactInfo.map((info, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <div className="text-green-400">
+                      <div className="text-blue-400 dark:text-yellow-400">
                         {info.icon}
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-300">{info.title}</h4>
-                        <a href={info.link} className="text-gray-400 hover:text-green-400 transition-colors">
+                        <a href={info.link} className="text-gray-400 hover:text-blue-400 dark:hover:text-yellow-400 transition-colors">
                           {info.content}
                         </a>
                       </div>
@@ -262,9 +268,10 @@ const Contact = () => {
             </div>
             <div className="absolute w-6 h-1 bg-white/20 rounded-full left-3 top-3"></div>
             {/* Steam Elements */}
-            <div className="absolute w-1.5 h-4 bg-white bg-opacity-30 rounded-full left-4 -top-2 steam steam1"></div>
-            <div className="absolute w-1.5 h-4 bg-white bg-opacity-30 rounded-full left-6 -top-4 steam steam2"></div>
-            <div className="absolute w-1.5 h-4 bg-white bg-opacity-30 rounded-full left-8 -top-3 steam steam3"></div>
+<div className="absolute w-1.5 h-4 bg-gray-700 bg-opacity-30 dark:bg-white dark:bg-opacity-30 rounded-full left-4 -top-2 steam steam1"></div>
+<div className="absolute w-1.5 h-4 bg-gray-700 bg-opacity-30 dark:bg-white dark:bg-opacity-30 rounded-full left-6 -top-4 steam steam2"></div>
+<div className="absolute w-1.5 h-4 bg-gray-700 bg-opacity-30 dark:bg-white dark:bg-opacity-30 rounded-full left-8 -top-3 steam steam3"></div>
+
             <div className="absolute left-2 bottom-3 text-[8px] tracking-widest">COFFEE</div>
           </div>
         </div>

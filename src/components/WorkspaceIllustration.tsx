@@ -58,7 +58,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
         <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-blue-500/30 blur-2xl animate-pulse delay-500"></div>
 
         {/* Desk Surface */}
-        <div className="absolute -bottom-8 w-full h-40 rounded-lg bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 shadow-2xl neon-border border-2">
+        <div className="absolute -bottom-8 w-full h-40 rounded-lg bg-gradient-to-br from-gray-300 dark:from-gray-700 via-gray-350 dark:via-gray-800 to-gray-500 dark:to-gray-900 shadow-2xl neon-border border-2">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
         </div>
 
@@ -76,22 +76,22 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
   "
         >
           {/* Monitor Stand */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full w-1/2 h-4 bg-gray-600 rounded-b-sm"></div>
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full w-1/2 h-4 bg-gray-200  border border-gray-600 dark:bg-gray-600 rounded-b-sm"></div>
 
           {/* Monitor Screen */}
-          <div className="flex-1 p-4 bg-gray-700 rounded-lg relative">
+          <div className="flex-1 p-4 bg-gray-200 dark:bg-gray-700 rounded-lg relative">
             {/* Terminal Window */}
-            <div className="absolute inset-2 bg-black rounded border border-gray-700 flex flex-col overflow-hidden">
+            <div className="absolute inset-2 bg-white dark:bg-black rounded border border-gray-300 dark:border-gray-700 flex flex-col overflow-hidden">
               {/* Terminal Header */}
-              <div className="bg-gray-800 p-1 md:p-2 flex items-center justify-between">
+              <div className="bg-gray-100 dark:bg-gray-800 p-1 md:p-2 flex items-center justify-between">
                 <div className="flex gap-1 sm:gap-2">
                   <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-2 h-2 sm:w-3 sm:h-3  bg-blue-500  dark:bg-yellow-500 rounded-full"></div>
                   <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
                 </div>
 
                 <div
-                  className=" text-yellow-300   font-mono
+                  className=" text-blue-400 dark:text-yellow-300   font-mono
           text-[6px]    /* default on very small screens */
           sm:text-xs    /* ≥640px */
           lg:text-sm    /* ≥1024px */
@@ -115,8 +115,8 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
                 <div className="flex justify-between items-start">
                   {/* Terminal Info on Left */}
                   <div>
-                    <pre className="text-green-500  ">
-                      <span className="text-yellow-400 font-mono
+                    <pre className="text-green-500">
+                      <span className="text-blue-400 dark:text-yellow-400 font-mono
           text-[6px]    /* default on very small screens */
           sm:text-xs    /* ≥640px */
           lg:text-sm    /* ≥1024px */">
@@ -131,35 +131,35 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
                     </pre>
                     <pre>
                       <span className="text-purple-400">OS:</span>{" "}
-                      <span className="text-gray-300">{getLine(0)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{getLine(0)}</span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Host:</span>{" "}
-                      <span className="text-gray-300">{getLine(1)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{getLine(1)}</span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Kernel:</span>{" "}
-                      <span className="text-gray-300">{getLine(2)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{getLine(2)}</span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Uptime:</span>{" "}
-                      <span className="text-gray-300">{getLine(3)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{getLine(3)}</span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Languages:</span>{" "}
-                      <span className="text-gray-300">{getLine(4)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{getLine(4)}</span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Editor:</span>{" "}
-                      <span className="text-gray-300">{getLine(5)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{getLine(5)}</span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Frameworks:</span>{" "}
-                      <span className="text-gray-300">{getLine(6)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{getLine(6)}</span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Version:</span>{" "}
-                      <span className="text-gray-300">{getLine(7)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{getLine(7)}</span>
                     </pre>
                   </div>
 
@@ -168,7 +168,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
                     <svg
                       viewBox="0 0 60 60"
                       className="
-                           text-white
+                           text-gray-900 dark:text-white
                             w-12 h-12        
                              sm:w-16 sm:h-16  
                            md:w-20 md:h-20 
@@ -180,9 +180,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
                         cx="30"
                         cy="30"
                         r="33"
-                        stroke="gray"
-                        strokeWidth="10"
-                        fill="silver"
+                        className="stroke-gray-400 dark:stroke-gray-600 fill-gray-200 dark:fill-gray-400"
                       />
 
                       {/* Clock Numbers */}
@@ -198,7 +196,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
                             y={y + 2}
                             textAnchor="middle"
                             fontSize="4"
-                            fill="white"
+                            className="fill-gray-900 dark:fill-white"
                           >
                             {i + 1}
                           </text>
@@ -210,7 +208,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
                         points={`${30},${30} ${hourCoords.x - 1},${
                           hourCoords.y
                         } ${hourCoords.x + 1},${hourCoords.y}`}
-                        fill="white"
+                        className="fill-gray-900 dark:fill-white"
                       />
 
                       {/* Arrow-shaped Minute Hand */}
@@ -230,7 +228,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
                       />
 
                       {/* Center Dot */}
-                      <circle cx="30" cy="30" r="2" fill="white" />
+                      <circle cx="30" cy="30" r="2" className="fill-gray-900 dark:fill-white" />
                     </svg>
                   </div>
                 </div>
@@ -256,12 +254,12 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
             </div>
 
             {/* Code Editor */}
-            <div className="flex-1 bg-black flex rounded-b">
+            <div className="flex-1 bg-white dark:bg-black flex rounded-b">
               {/* Sidebar */}
-              <div className="w-2 bg-gray-800 flex flex-col items-center py-1 gap-0.5">
+              <div className="w-2 bg-gray-200 dark:bg-gray-800 flex flex-col items-center py-1 gap-0.5">
                 <div className="w-1 h-1.5 bg-gray-700 rounded border border-gray-900 "></div>
                 <div className="w-1 h-1.5 bg-gray-700 rounded  border border-gray-900"></div>
-                <div className="w-1 h-1.5 bg-green-500 rounded border  border-gray-900"></div>
+                <div className="w-1 h-1.5 bg-yellow-500 dark:bg-blue-500 rounded border border-gray-900"></div>
                 <div className="w-1 h-1.5 bg-gray-700 rounded  border border-gray-900"></div>
               </div>
 
@@ -271,7 +269,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
                   <span className="text-purple-400">import</span>{" "}
                   <span className="text-blue-400">React</span>{" "}
                   <span className="text-purple-400">from</span>{" "}
-                  <span className="text-green-400">'react'</span>;
+                  <span className="text-yellow-400">'react'</span>;
                   <br />
                   <br />
                   <div className="bg-blue-800/40 px-1 rounded select-none">
@@ -292,7 +290,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
                   &nbsp;&nbsp;&nbsp;&nbsp;&lt;
                   <span className="text-blue-400">div</span>{" "}
                   <span className="text-yellow-400">className</span>=
-                  <span className="text-green-400">"workspace"</span>&gt;
+                  <span className="text-yellow-400">"workspace"</span>&gt;
                   <br />
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;
                   <span className="text-blue-400">isLoading</span> ? (
@@ -321,7 +319,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
 
         {/* Sticky Notes */}
         <div
-          className={`relative top-10 left-2 md:left-6 w-6 h-6 md:w-12 md:h-12 bg-yellow-200 rounded shadow-lg transform transition-all duration-700 ${
+          className={`relative top-10 left-2 md:left-6 w-6 h-6 md:w-12 md:h-12  bg-blue-200 dark:bg-yellow-200 rounded shadow-lg transform transition-all duration-700 ${
             isAnimating ? "opacity-100 rotate-[-15deg]" : "opacity-0 rotate-0"
           }`}
           style={{ transformOrigin: "top left" }}
@@ -337,7 +335,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
         </div>
 
         <div
-          className={`absolute top-24 md:top-32 left-3 md:left-8 w-6 h-6 md:w-12 md:h-12 bg-blue-200 rounded shadow-lg transform transition-all duration-700  ${
+          className={`absolute top-24 md:top-32 left-3 md:left-8 w-6 h-6 md:w-12 md:h-12 bg-yellow-200 dark:bg-blue-200 rounded shadow-lg transform transition-all duration-700  ${
             isAnimating ? "opacity-100 rotate-[10deg]" : "opacity-0 rotate-0"
           }`}
           style={{ transformOrigin: "top left" }}

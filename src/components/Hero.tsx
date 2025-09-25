@@ -77,37 +77,37 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative xl:min-h-screen flex items-center justify-center pt-20 pb-16">
-      <div className="absolute inset-0 bg-hero opacity-[.03]"></div>
+      {/* Light mode */}
+      <div className="absolute inset-0 bg-hero-light dark:hidden opacity-[.20] z-0"></div>
+
+      {/* Dark mode */}
+      <div className="absolute inset-0 hidden dark:block bg-hero-dark dark:opacity-[.03] z-0"></div>
+
       <div className="max-w-6xl mx-auto px-4 lg:px-12 relative z-10">
         <div className="flex flex-col items-center gap-8 xl:gap-12">
           <div className="w-full text-center space-y-6 xl:pt-8">
-            <div className="space-y-2">
-              <h2 className="text-green-500 text-xl md:text-2xl font-semibold">Hello, I'm</h2>
-              <h1 className="text-4xl lg:text-6xl font-bold font-code tracking-tight text-white">
-                Sayyed Mohammad Adil
-              </h1>
-            </div>  
-
-            <p className="text-lg text-gray-300 max-w-xl mx-auto leading-relaxed">
-              Crafting elegant solutions to complex problems with clean code and innovative thinking.
-              Welcome to my personal dev workspace where ideas come to life.
+            <h2 className="text-blue-500 dark:text-yellow-500 text-xl md:text-2xl font-semibold">Hello, I'm</h2>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white font-code mb-4">
+              Sayyed Mohammad Adil
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
+              I build exceptional and accessible digital experiences for the web. Focused on creating elegant solutions to complex problems.
             </p>
-
-            <div className="flex flex-wrap justify-center items-center gap-4 py-2">
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="px-8 py-3 bg-green-500 hover:bg-green-600 text-gray-900 font-bold rounded-lg transition-all flex items-center gap-2"
-              >
-                <Code size={20} />
-                View Projects
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="px-8 py-3 bg-transparent hover:bg-gray-800 text-green-400 border border-green-400 font-bold rounded-lg transition-all flex items-center gap-2"
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#contact"
+                className="px-8 py-3 bg-blue-500 dark:bg-yellow-500 hover:bg-blue-600 dark:hover:bg-yellow-600 text-white dark:text-gray-900 font-bold rounded-lg transition-all flex items-center gap-2"
               >
                 <Mail size={20} />
                 Contact Me
-              </button>
+              </a>
+              <a
+                href="#projects"
+                className="px-8 py-3 bg-transparent hover:bg-gray-800 text-blue-400 dark:text-yellow-400 border border-blue-400 dark:border-yellow-400 font-bold rounded-lg transition-all flex items-center gap-2"
+              >
+                <Code size={20} />
+                View Projects
+              </a>
             </div>
           </div>
 
