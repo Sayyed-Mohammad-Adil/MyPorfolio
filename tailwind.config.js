@@ -34,5 +34,13 @@ export default {
 
         },
     },
-    plugins: [],
+     plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.led-light': { 'text-shadow': '0 0 6px rgba(59, 130, 246, 0.8)' },
+        '.led-dark': { 'text-shadow': '0 0 6px rgba(234, 179, 8, 0.8)' },
+      };
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }
+  ],
 };
