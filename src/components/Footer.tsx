@@ -109,7 +109,7 @@ const Footer = () => {
                 type="email"
                 placeholder="Enter your email"
                 className="w-full px-4 py-2 
-             bg-white text-gray-900 
+             bg-gray-200 text-gray-900 
              dark:bg-gray-800 dark:text-gray-300 
              border border-gray-300 dark:border-gray-700 
              rounded-lg 
@@ -119,7 +119,7 @@ const Footer = () => {
 
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-blue-600 dark:bg-yellow-600 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2"
+                className="w-full px-4 py-2 bg-blue-600 dark:bg-yellow-600  dark:text-gray-900 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2"
               >
                 <Send size={16} />
                 Subscribe

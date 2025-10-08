@@ -112,7 +112,7 @@ const Blog = () => {
               href="https://iotnodejs.hashnode.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-blue-500 dark:bg-yellow-400 text-gray-900 dark:text-white font-bold rounded-lg hover:bg-blue-600 dark:hover:bg-yellow-600 transition-colors inline-flex items-center gap-2"
+              className="px-8 py-3 bg-blue-500 dark:bg-yellow-400  dark:text-gray-900 text-white font-bold rounded-lg hover:bg-blue-600 dark:hover:bg-yellow-600 transition-colors inline-flex items-center gap-2"
             >
               <BookOpen size={20} />
               View All Posts

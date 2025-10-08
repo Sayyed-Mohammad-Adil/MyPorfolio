@@ -101,7 +101,7 @@ const Contact = () => {
       icon: <Github size={24} />,
       name: 'GitHub',
       link: 'https://github.com/sayyedmohammadadil',
-      color: 'hover:text-gray-300',
+      color: 'hover:text-gray-100 dark:hover:text-gray-300',
     },
     {
       icon: <Linkedin size={24} />,
@@ -137,7 +137,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Content */}
-        <div className="relative overflow-hidden bg-white dark:bg-gray-950 p-8 rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg flex items-center justify-center">
+        <div className="relative overflow-hidden bg-gray-300 dark:bg-gray-950 p-8 rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg flex items-center justify-center">
           {/* Table decoration */}
           <div className="absolute -bottom-20 -right-20 w-56 h-56 bg-gray-100/20 dark:bg-gray-800/20 border-2 border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center overflow-hidden">
             {/* <div className="w-full h-full bg-hero opacity-[.03] bg-cover bg-center"></div> */}
@@ -165,7 +165,7 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-200 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors"
                     placeholder="Your Name"
                     required
                   />
@@ -179,7 +179,7 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-200 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors"
                     placeholder="Your Email"
                     required
                   />
@@ -193,7 +193,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-gray-200 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors resize-none"
                     placeholder="Your Message"
                     required
                   />
@@ -202,7 +202,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3 bg-blue-600 dark:bg-yellow-600 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2"
+                  className="w-full px-6 py-3 bg-blue-600 dark:bg-yellow-600 dark:text-gray-900 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2"
                 >
                   <Send size={20} />
                   <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
@@ -216,7 +216,7 @@ const Contact = () => {
             <div className="space-y-8">
               {/* Contact Info */}
               <div className="relative">
-                <h3 className="text-xl font-bold font-code text-white mb-6">
+                <h3 className="text-xl font-bold font-code text-gray-900 dark:text-white mb-6">
                   Contact Info
                 </h3>
                 <ul className="space-y-4 text-gray-300">
@@ -226,7 +226,7 @@ const Contact = () => {
                         {info.icon}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-300">{info.title}</h4>
+                        <h4 className="font-semibold text-gray-700 dark:text-gray-300">{info.title}</h4>
                         <a href={info.link} className="text-gray-400 hover:text-blue-400 dark:hover:text-yellow-400 transition-colors">
                           {info.content}
                         </a>
@@ -238,7 +238,7 @@ const Contact = () => {
 
               {/* Social Links */}
               <div className="relative">
-                <h3 className="text-xl font-bold font-code text-white mb-6">
+                <h3 className="text-xl font-bold font-code text-gray-900 dark:text-white mb-6">
                   Connect with Me
                 </h3>
                 <div className="flex gap-4">
@@ -248,7 +248,7 @@ const Contact = () => {
                       href={social.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`text-gray-300 ${social.color} text-2xl transition-all transform hover:scale-110`}
+                      className={`text-gray-900 dark:text-gray-300 ${social.color} text-2xl transition-all transform hover:scale-110`}
                       aria-label={social.name}
                     >
                       {social.icon}

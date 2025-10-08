@@ -79,9 +79,9 @@ const CTA = () => {
             {/* Hire Me Button */}
             <button
               onClick={() => scrollToSection('contact')}
-              className="group relative px-8 py-3 bg-blue-500 dark:bg-yellow-500 text-gray-900 font-bold rounded-lg transition-all flex items-center gap-2 z-10 hover:bg-blue-600 dark:hover:bg-yellow-600"
+              className="group relative px-8 py-3 bg-blue-500 dark:bg-yellow-500 text-white dark:text-gray-900  font-bold rounded-lg transition-all flex items-center gap-2 z-10 hover:bg-blue-600 dark:hover:bg-yellow-600"
             >
-              <Briefcase className="text-gray-900 group-hover:scale-110 transition-transform" />
+              <Briefcase className="dark:text-gray-900 group-hover:scale-110 transition-transform" />
               Hire Me
             </button>
           </div>
