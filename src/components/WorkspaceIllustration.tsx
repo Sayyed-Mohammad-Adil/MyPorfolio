@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 interface WorkspaceIllustrationProps {
@@ -22,8 +21,8 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
     return () => clearInterval(interval);
   }, []);
 
-  const radius = 25;
-  const center = 30;
+  const radius = 45;
+  const center = 50;
   const hour = time.getHours() % 12;
   const minute = time.getMinutes();
   const second = time.getSeconds();
@@ -83,7 +82,7 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
             {/* Terminal Window */}
             <div className="absolute inset-2 bg-white dark:bg-black rounded border border-gray-300 dark:border-gray-700 flex flex-col overflow-hidden">
               {/* Terminal Header */}
-              <div className="bg-gray-100 dark:bg-gray-800 p-1 md:p-2 flex items-center justify-between">
+              <div className="bg-gray-200 dark:bg-gray-800 p-1 md:p-2 flex items-center justify-between">
                 <div className="flex gap-1 sm:gap-2">
                   <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
                   <div className="w-2 h-2 sm:w-3 sm:h-3  bg-blue-500  dark:bg-yellow-500 rounded-full"></div>
@@ -116,87 +115,110 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
                   {/* Terminal Info on Left */}
                   <div>
                     <pre className="text-green-500">
-                      <span className="text-blue-400 dark:text-yellow-400 font-mono
+                      <span
+                        className="text-blue-400 dark:text-yellow-400 font-mono
           text-[6px]    /* default on very small screens */
           sm:text-xs    /* ≥640px */
-          lg:text-sm    /* ≥1024px */">
+          lg:text-sm    /* ≥1024px */"
+                      >
                         adil@dev-workspace
                       </span>
                       {`\n`}
-                      <span className="text-gray-400 font-mono
+                      <span
+                        className="text-gray-400 font-mono
           text-[6px]    /* default on very small screens */
           sm:text-xs    /* ≥640px */
-          lg:text-sm    /* ≥1024px */ ">------------------</span>
-                      
+          lg:text-sm    /* ≥1024px */ "
+                      >
+                        ------------------
+                      </span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">OS:</span>{" "}
-                      <span className="text-gray-700 dark:text-gray-300">{getLine(0)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {getLine(0)}
+                      </span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Host:</span>{" "}
-                      <span className="text-gray-700 dark:text-gray-300">{getLine(1)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {getLine(1)}
+                      </span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Kernel:</span>{" "}
-                      <span className="text-gray-700 dark:text-gray-300">{getLine(2)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {getLine(2)}
+                      </span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Uptime:</span>{" "}
-                      <span className="text-gray-700 dark:text-gray-300">{getLine(3)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {getLine(3)}
+                      </span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Languages:</span>{" "}
-                      <span className="text-gray-700 dark:text-gray-300">{getLine(4)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {getLine(4)}
+                      </span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Editor:</span>{" "}
-                      <span className="text-gray-700 dark:text-gray-300">{getLine(5)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {getLine(5)}
+                      </span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Frameworks:</span>{" "}
-                      <span className="text-gray-700 dark:text-gray-300">{getLine(6)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {getLine(6)}
+                      </span>
                     </pre>
                     <pre>
                       <span className="text-purple-400">Version:</span>{" "}
-                      <span className="text-gray-700 dark:text-gray-300">{getLine(7)}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {getLine(7)}
+                      </span>
                     </pre>
                   </div>
 
                   {/* Clock on Right */}
-                  <div className="flex justify-end ">
+                  {/* Clock on Right */}
+                  <div className="flex justify-end">
                     <svg
-                      viewBox="0 0 60 60"
+                      viewBox="0 0 100 100"
                       className="
-                           text-gray-900 dark:text-white
-                            w-12 h-12        
-                             sm:w-16 sm:h-16  
-                           md:w-20 md:h-20 
-                           lg:w-24 lg:h-24  
- "
+      text-gray-900 dark:text-white
+      w-12 h-12        
+      sm:w-16 sm:h-16  
+      md:w-20 md:h-20 
+      lg:w-24 lg:h-24  
+    "
                     >
                       {/* Outer Circle */}
                       <circle
-                        cx="30"
-                        cy="30"
-                        r="33"
-                        className="stroke-gray-400 dark:stroke-gray-600 fill-gray-200 dark:fill-gray-400"
+                        cx="50"
+                        cy="50"
+                        r="45"
+                        className="stroke-gray-900 dark:stroke-gray-200 fill-gray-200 dark:fill-gray-600"
                       />
 
                       {/* Clock Numbers */}
                       {[...Array(12)].map((_, i) => {
                         const angle = (i + 1) * 30 * (Math.PI / 180);
-                        const radius = 23;
-                        const x = 30 + radius * Math.sin(angle);
-                        const y = 30 - radius * Math.cos(angle);
+                        const radius = 38;
+                        const x = 50 + radius * Math.sin(angle);
+                        const y = 50 - radius * Math.cos(angle);
                         return (
                           <text
                             key={i}
                             x={x}
-                            y={y + 2}
+                            y={y}
                             textAnchor="middle"
-                            fontSize="4"
-                            className="fill-gray-900 dark:fill-white"
+                            fontSize="6"
+                            dominantBaseline="middle"
+                            className="fill-gray-900 dark:fill-gray-100"
                           >
                             {i + 1}
                           </text>
@@ -205,30 +227,41 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
 
                       {/* Arrow-shaped Hour Hand */}
                       <polygon
-                        points={`${30},${30} ${hourCoords.x - 1},${
-                          hourCoords.y
-                        } ${hourCoords.x + 1},${hourCoords.y}`}
+                        points={`
+        50,50 
+        ${hourCoords.x - 2},${hourCoords.y + 1} 
+        ${hourCoords.x + 2},${hourCoords.y - 1}
+      `}
                         className="fill-gray-900 dark:fill-white"
                       />
 
                       {/* Arrow-shaped Minute Hand */}
                       <polygon
-                        points={`${30},${30} ${minuteCoords.x - 1},${
-                          minuteCoords.y
-                        } ${minuteCoords.x + 1},${minuteCoords.y}`}
-                        fill="white"
+                        points={`
+        50,50 
+        ${minuteCoords.x - 1.5},${minuteCoords.y + 0.8} 
+        ${minuteCoords.x + 1.5},${minuteCoords.y - 0.8}
+      `}
+                        className="fill-gray-700 dark:fill-gray-300"
                       />
 
                       {/* Arrow-shaped Second Hand */}
                       <polygon
-                        points={`${30},${30} ${secondCoords.x - 0.5},${
-                          secondCoords.y
-                        } ${secondCoords.x + 0.5},${secondCoords.y}`}
-                        fill="red"
+                        points={`
+        50,50 
+        ${secondCoords.x - 1},${secondCoords.y + 0.5} 
+        ${secondCoords.x + 1},${secondCoords.y - 0.5}
+      `}
+                        className="fill-yellow-400 dark:fill-blue-400"
                       />
 
                       {/* Center Dot */}
-                      <circle cx="30" cy="30" r="2" className="fill-gray-900 dark:fill-white" />
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="3"
+                        className="fill-gray-900 dark:fill-white"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -244,12 +277,12 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
           }`}
         >
           {/* Laptop Stand */}
-          <div className="absolute bottom-2 sm:bottom-8 w-full h-4 bg-gray-700 rounded-b-sm"></div>
+          <div className="absolute bottom-2 sm:bottom-8 w-full h-4 bg-gray-300 dark:bg-gray-700 rounded-b-sm"></div>
 
           {/* Laptop Screen */}
-          <div className="absolute bottom-[calc(25%-1px)] w-full aspect-video bg-gray-700 border border-gray-700 rounded-t-sm flex flex-col px-1">
+          <div className="absolute bottom-[calc(25%-1px)] w-full aspect-video bg-gray-300 dark:bg-gray-700 border border-gray-500 dark:border-gray-700 rounded-t-sm flex flex-col px-1">
             {/* Laptop Header */}
-            <div className="h-1 bg-gray-700 flex items-center justify-center">
+            <div className="h-1 bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
               <div className="w-1 h-1 bg-gray-300 rounded-full border border-black"></div>
             </div>
 
@@ -257,10 +290,10 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
             <div className="flex-1 bg-white dark:bg-black flex rounded-b">
               {/* Sidebar */}
               <div className="w-2 bg-gray-200 dark:bg-gray-800 flex flex-col items-center py-1 gap-0.5">
-                <div className="w-1 h-1.5 bg-gray-700 rounded border border-gray-900 "></div>
-                <div className="w-1 h-1.5 bg-gray-700 rounded  border border-gray-900"></div>
+                <div className="w-1 h-1.5 dark:bg-gray-700 rounded border border-gray-900 "></div>
+                <div className="w-1 h-1.5 dark:bg-gray-700 rounded  border border-gray-900"></div>
                 <div className="w-1 h-1.5 bg-yellow-500 dark:bg-blue-500 rounded border border-gray-900"></div>
-                <div className="w-1 h-1.5 bg-gray-700 rounded  border border-gray-900"></div>
+                <div className="w-1 h-1.5 dark:bg-gray-700 rounded  border border-gray-900"></div>
               </div>
 
               {/* Code Editor (Prettified Static Display) */}
@@ -351,44 +384,41 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = ({
         </div>
 
         {/* Coffee Cup with Steam Animation */}
-       <div
-  className={`
+        <div
+          className={`
     absolute -bottom-4 md:-bottom-2 left-10
     w-12 h-16
     transition-all duration-1000 delay-300
     transform origin-bottom-left
     scale-75       /* mobile: 75% size */
     md:scale-100   /* ≥768px: 100% size */
-    ${isAnimating
-      ? "opacity-100 translate-y-0"
-      : "opacity-0 translate-y-4"
-    }
+    ${isAnimating ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
   `}
->
-  {/* Coffee Cup Handle */}
-  <div className="absolute -right-3 top-6 h-6 w-6 border-2 border-gray-700 rounded-r-full"></div>
+        >
+          {/* Coffee Cup Handle */}
+          <div className="absolute -right-3 top-6 h-6 w-6 border-2 border-gray-700 rounded-r-full"></div>
 
-  {/* Coffee Cup Base */}
-  <div className="absolute bottom-0 w-full h-8 bg-gray-700 rounded-b-lg"></div>
+          {/* Coffee Cup Base */}
+          <div className="absolute bottom-0 w-full h-8 bg-gray-700 rounded-b-lg"></div>
 
-  {/* Coffee */}
-  <div className="absolute bottom-6 w-full h-6 bg-gray-600 rounded-lg">
-    <div className="absolute inset-1 rounded-lg bg-gradient-to-b from-amber-700 to-amber-900"></div>
-  </div>
+          {/* Coffee */}
+          <div className="absolute bottom-6 w-full h-6 bg-gray-600 rounded-lg">
+            <div className="absolute inset-1 rounded-lg bg-gradient-to-b from-amber-700 to-amber-900"></div>
+          </div>
 
-  {/* Cup Highlight */}
-  <div className="absolute w-4 h-1 bg-white/20 rounded-full left-2 top-2"></div>
+          {/* Cup Highlight */}
+          <div className="absolute w-4 h-1 bg-white/20 rounded-full left-2 top-2"></div>
 
-  {/* Animated Steam */}
-  <div className="absolute w-1 h-3 bg-white bg-opacity-40 rounded-full left-3 -top-2 animate-pulse"></div>
-  <div className="absolute w-1 h-4 bg-white bg-opacity-30 rounded-full left-5 -top-3 animate-pulse delay-300"></div>
-  <div className="absolute w-1 h-3 bg-white bg-opacity-35 rounded-full left-7 -top-2 animate-pulse delay-700"></div>
+          {/* Animated Steam */}
+          <div className="absolute w-1 h-3 bg-white bg-opacity-40 rounded-full left-3 -top-2 animate-pulse"></div>
+          <div className="absolute w-1 h-4 bg-white bg-opacity-30 rounded-full left-5 -top-3 animate-pulse delay-300"></div>
+          <div className="absolute w-1 h-3 bg-white bg-opacity-35 rounded-full left-7 -top-2 animate-pulse delay-700"></div>
 
-  {/* Coffee Label */}
-  <div className="absolute left-1 bottom-2 text-[6px] text-gray-300 font-bold tracking-widest">
-    COFFEE
-  </div>
-</div>
+          {/* Coffee Label */}
+          <div className="absolute left-1 bottom-2 text-[6px] text-gray-300 font-bold tracking-widest">
+            COFFEE
+          </div>
+        </div>
       </div>
     </div>
   );

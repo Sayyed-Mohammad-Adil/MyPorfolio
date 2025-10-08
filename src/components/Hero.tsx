@@ -1,23 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Code, Mail } from 'lucide-react';
-import WorkspaceIllustration from './WorkspaceIllustration';
+import React, { useEffect, useRef, useState } from "react";
+import { Code, Mail } from "lucide-react";
+import WorkspaceIllustration from "./WorkspaceIllustration";
 
 const Hero = () => {
   const [typedLines, setTypedLines] = useState<string[]>([]);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
-  const [currentLineText, setCurrentLineText] = useState('');
+  const [currentLineText, setCurrentLineText] = useState("");
   const [startTyping, setStartTyping] = useState(false); // 👈 Trigger flag
   const workspaceRef = useRef<HTMLDivElement>(null);
 
   const texts = [
-    'Ubuntu v22.04.0',
-    'ThinkPad X1 Carbon',
-    '5.15.0-Jellyfish',
-    '45 days, 17 hours',
-    'JavaScript, Python, Go',
-    'VSCode / Trae',
-    'React, Next.js, TailwindCSS',
-    'v-1.0.0',
+    "Ubuntu v22.04.0",
+    "ThinkPad X1 Carbon",
+    "5.15.0-Jellyfish",
+    "45 days, 17 hours",
+    "JavaScript, Python, Go",
+    "VSCode / Trae",
+    "React, Next.js, TailwindCSS",
+    "v-1.0.0",
   ];
 
   // 👁️ Intersection Observer to trigger typing when visible
@@ -57,7 +57,7 @@ const Hero = () => {
         clearInterval(interval);
         setTimeout(() => {
           setTypedLines((prev) => [...prev, fullText]);
-          setCurrentLineText('');
+          setCurrentLineText("");
           setCurrentLineIndex((prev) => prev + 1);
         }, 500);
       }
@@ -70,13 +70,17 @@ const Hero = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       const yOffset = -70;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
   return (
-    <section id="hero" className="relative xl:min-h-screen flex items-center justify-center pt-20 pb-16">
+    <section
+      id="hero"
+      className="relative xl:min-h-screen flex items-center justify-center pt-20 pb-16"
+    >
       {/* Light mode */}
       <div className="absolute inset-0 bg-hero-light dark:hidden opacity-[.20] z-0"></div>
 
@@ -86,12 +90,15 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto px-4 lg:px-12 relative z-10">
         <div className="flex flex-col items-center gap-8 xl:gap-12">
           <div className="w-full text-center space-y-6 xl:pt-8">
-            <h2 className="text-blue-500 dark:text-yellow-500 text-xl md:text-2xl font-semibold">Hello, I'm</h2>
+            <h2 className="text-blue-500 dark:text-yellow-500 text-xl md:text-2xl font-semibold">
+              Hello, I'm
+            </h2>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white font-code mb-4">
               Sayyed Mohammad Adil
             </h1>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
-              I build exceptional and accessible digital experiences for the web. Focused on creating elegant solutions to complex problems.
+              I create inclusive, scalable solutions focused on clarity,
+              performance, and purpose.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -111,7 +118,10 @@ const Hero = () => {
             </div>
           </div>
 
-          <div ref={workspaceRef} className="w-full xl:w-20/100 mx-auto relative">
+          <div
+            ref={workspaceRef}
+            className="w-full xl:w-20/100 mx-auto relative"
+          >
             <WorkspaceIllustration
               typingLines={[...typedLines, currentLineText]}
               showLaptop={typedLines.length === texts.length} // 👈 Show only after typing ends
