@@ -97,12 +97,14 @@ const Projects = () => {
                 <div className="flex justify-between items-center">
                   <a
                     href={project.githubUrl}
-                    className="text-gray-600 hover:text-yellow-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-yellow-400 transition-colors"
+                    className="text-gray-600 hover:text-blue-600 dark:hover:text-yellow-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-yellow-400 transition-colors"
                   >
                     <Github size={20} />
                   </a>
                   <a
                     href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-blue-400 dark:text-yellow-400 hover:text-blue-600 dark:hover:text-yellow-400  font-medium flex items-center gap-2"
                   >
                     <ExternalLink size={20} />
