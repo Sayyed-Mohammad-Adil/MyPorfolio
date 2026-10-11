@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, Coffee, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, Coffee, Instagram, CheckCircle2 } from 'lucide-react';
 
 interface ContactProps {
   onFormSubmitSuccess?: () => void;
@@ -68,14 +68,18 @@ const Contact: React.FC<ContactProps> = ({ onFormSubmitSuccess }) => {
 
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 600));
       console.log('Form submitted:', formData);
       setSuccess(true);
       setFormData({ name: '', email: '', message: '' });
 
-      // Trigger Profile modal popup on form submission
+      // Trigger Profile modal popup after short delay so user clearly sees the success banner
       if (onFormSubmitSuccess) onFormSubmitSuccess();
-      window.dispatchEvent(new CustomEvent('open-profile-modal'));
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent('open-profile-modal', {
+          detail: { fromContact: true }
+        }));
+      }, 850);
     } catch (err) {
       setError('Failed to send message. Please try again later.');
     } finally {
@@ -215,7 +219,12 @@ const Contact: React.FC<ContactProps> = ({ onFormSubmitSuccess }) => {
                   <Send size={20} />
                   <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                 </button>
-                {success && <p className="text-blue-400 dark:text-yellow-400 text-center mt-4">Message sent successfully!</p>}
+                {success && (
+                  <div className="mt-4 p-3.5 bg-emerald-500/15 border border-emerald-500/40 rounded-xl text-emerald-600 dark:text-emerald-400 text-center flex items-center justify-center gap-2 font-medium text-sm shadow-sm">
+                    <CheckCircle2 size={18} className="text-emerald-500 shrink-0" />
+                    <span>Message sent successfully! Thank you for reaching out.</span>
+                  </div>
+                )}
                 {error && <p className="text-red-400 text-center mt-4">{error}</p>}
               </form>
             </div>

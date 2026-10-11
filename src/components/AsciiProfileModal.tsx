@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Copy, Check, ExternalLink, Terminal, Sparkles, User } from 'lucide-react';
+import { X, Copy, Check, ExternalLink, Terminal, Sparkles, User, CheckCircle2 } from 'lucide-react';
 import {
   ASCII_PORTRAIT_DATA,
   ASCII_PORTRAIT_PLAIN,
@@ -18,6 +18,8 @@ interface AsciiProfileModalProps {
 const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpen, onClose }) => {
   const [isOpen, setIsOpen] = useState(propIsOpen ?? false);
   const [copied, setCopied] = useState(false);
+  const [isFromContact, setIsFromContact] = useState(false);
+  const [visibleRows, setVisibleRows] = useState(0);
 
   // Sync with prop if passed
   useEffect(() => {
@@ -28,10 +30,36 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
 
   // Listen for open-profile-modal event (e.g. from Contact form submission)
   useEffect(() => {
-    const handleTrigger = () => setIsOpen(true);
+    const handleTrigger = (e: Event) => {
+      const customEvent = e as CustomEvent<{ fromContact?: boolean }>;
+      if (customEvent.detail?.fromContact) {
+        setIsFromContact(true);
+      } else {
+        setIsFromContact(false);
+      }
+      setIsOpen(true);
+    };
     window.addEventListener('open-profile-modal', handleTrigger);
     return () => window.removeEventListener('open-profile-modal', handleTrigger);
   }, []);
+
+  // Smooth typewriter/scanline animation: print ASCII portrait row by row
+  useEffect(() => {
+    if (isOpen) {
+      setVisibleRows(1);
+      let currentRow = 1;
+      const timer = setInterval(() => {
+        currentRow++;
+        setVisibleRows(currentRow);
+        if (currentRow >= ASCII_PORTRAIT_DATA.length) {
+          clearInterval(timer);
+        }
+      }, 35); // 35ms per line -> ~1.0s smooth terminal print
+      return () => clearInterval(timer);
+    } else {
+      setVisibleRows(0);
+    }
+  }, [isOpen]);
 
   // Close on Escape key
   useEffect(() => {
@@ -47,6 +75,7 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
 
   const closeModal = () => {
     setIsOpen(false);
+    setIsFromContact(false);
     if (onClose) onClose();
   };
 
@@ -67,7 +96,10 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
       {/* Floating launcher button at bottom corner for quick access if modal is closed */}
       {!isOpen && (
         <button
-          onClick={() => setIsOpen(true)}
+          onClick={() => {
+            setIsFromContact(false);
+            setIsOpen(true);
+          }}
           className="fixed bottom-6 left-6 z-40 flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/90 hover:bg-white text-gray-900 border border-blue-500/40 shadow-xl hover:scale-105 transition-all text-xs font-mono group dark:bg-gray-900/90 dark:hover:bg-black dark:text-gray-100 dark:border-yellow-500/40 dark:shadow-2xl"
           title="Open Profile"
         >
@@ -147,6 +179,17 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
                 </div>
               </div>
 
+              {/* Form Submission Success Banner inside the terminal if opened after sending a message */}
+              {isFromContact && (
+                <div className="px-4 py-2 bg-emerald-500/15 border-b border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-mono flex items-center justify-between animate-fade-in">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={15} className="text-emerald-500 shrink-0" />
+                    <span className="font-semibold">Message sent successfully! Thank you for reaching out.</span>
+                  </div>
+                  <span className="text-[10px] text-emerald-500/80 hidden sm:inline font-mono">STATUS: 200 OK</span>
+                </div>
+              )}
+
               {/* Main Content Area - Balanced 2-Column Grid (NO internal scroll required!) */}
               <div className="p-3 sm:p-4 md:p-5 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-center">
                 {/* Left Column: Genuine TrueColor ASCII Portrait inside sleek CRT terminal frame */}
@@ -159,10 +202,10 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
                     <span className="text-[10px] text-blue-400 dark:text-yellow-400 font-medium">TrueColor ASCII</span>
                   </div>
 
-                  {/* High-Definition ASCII Character Matrix (NO blur, NO background block, 100% genuine ASCII text) */}
-                  <div className="overflow-x-auto max-w-full flex justify-center py-0.5 select-all">
+                  {/* High-Definition ASCII Character Matrix with Slow-Print Terminal Animation */}
+                  <div className="overflow-x-auto max-w-full flex flex-col items-center justify-center py-0.5 select-all min-h-[196px] sm:min-h-[212px]">
                     <div className="flex flex-col items-center">
-                      {ASCII_PORTRAIT_DATA.map((row, rowIdx) => (
+                      {ASCII_PORTRAIT_DATA.slice(0, visibleRows).map((row, rowIdx) => (
                         <div key={rowIdx} className="flex whitespace-nowrap leading-[1.0]">
                           {row.map((cell, colIdx) => (
                             <span
@@ -176,11 +219,20 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
                         </div>
                       ))}
                     </div>
+
+                    {/* Blinking scanning indicator while printing rows */}
+                    {visibleRows < ASCII_PORTRAIT_DATA.length && (
+                      <div className="flex items-center justify-center gap-1.5 mt-1 text-emerald-400 font-mono text-[9px] animate-pulse">
+                        <span className="w-1.5 h-2.5 bg-emerald-400 inline-block"></span>
+                        <span className="text-gray-400">rendering avatar.ascii... [{Math.round((visibleRows / ASCII_PORTRAIT_DATA.length) * 100)}%]</span>
+                      </div>
+                    )}
                   </div>
 
+                  {/* Logical metadata under portrait - NO redundant name duplication */}
                   <div className="text-[10px] text-gray-400 mt-1.5 font-mono flex items-center justify-center gap-1.5">
                     <span className="text-emerald-400">●</span>
-                    <span className="text-gray-300 font-medium">Sayyed Mohammad Adil</span>
+                    <span className="text-gray-300 dark:text-gray-300 font-medium">TrueColor Matrix</span>
                     <span className="text-gray-600">•</span>
                     <span className="text-blue-400 dark:text-yellow-400 font-medium">@Sayyed-Mohammad-Adil</span>
                   </div>
