@@ -53,7 +53,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 z-50 transition-all duration-300 w-full ${
-      isScrolled ? 'bg-white/95 dark:bg-gray-950/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800' : 'bg-transparent'
+      isScrolled ? 'bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 shadow-sm' : 'bg-transparent'
     }`}>
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-4 sm:py-6 flex justify-between items-center">
         <button 
@@ -96,7 +96,7 @@ const Header = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-gray-300 hover:text-yellow-400 transition-colors"
+            className="text-gray-900 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

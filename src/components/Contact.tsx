@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, Coffee, Instagram } from 'lucide-react';
 
-const Contact = () => {
+interface ContactProps {
+  onFormSubmitSuccess?: () => void;
+}
+
+const Contact: React.FC<ContactProps> = ({ onFormSubmitSuccess }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -68,6 +72,10 @@ const Contact = () => {
       console.log('Form submitted:', formData);
       setSuccess(true);
       setFormData({ name: '', email: '', message: '' });
+
+      // Trigger Profile modal popup on form submission
+      if (onFormSubmitSuccess) onFormSubmitSuccess();
+      window.dispatchEvent(new CustomEvent('open-profile-modal'));
     } catch (err) {
       setError('Failed to send message. Please try again later.');
     } finally {
@@ -136,10 +144,10 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Contact Content */}
-        <div className="relative overflow-hidden bg-gray-300 dark:bg-gray-950 p-8 rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg flex items-center justify-center">
-          {/* Table decoration */}
-          <div className="absolute -bottom-20 -right-20 w-56 h-56 bg-gray-100/20 dark:bg-gray-800/20 border-2 border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center overflow-hidden">
+        {/* Contact Content - Premium Glassmorphic Container */}
+        <div className="relative overflow-hidden bg-white/40 dark:bg-gray-950/40 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-white/20 dark:border-gray-800/50 shadow-2xl flex items-center justify-center">
+          {/* Table decoration (Spinning circle) */}
+          <div className="absolute -bottom-20 -right-20 w-56 h-56 bg-gray-100/20 dark:bg-gray-800/20 border-2 border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center overflow-hidden animate-[spin_20s_linear_infinite]">
             {/* <div className="w-full h-full bg-hero opacity-[.03] bg-cover bg-center"></div> */}
             {/* Light Mode Background */}
             <div className="w-full h-full bg-hero-light opacity-[.40] bg-cover bg-center dark:hidden"></div>
@@ -165,8 +173,8 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-200 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors"
-                    placeholder="Your Name"
+                    className="w-full px-5 py-4 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-xl text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-yellow-400 transition-all shadow-inner"
+                    placeholder="John Doe"
                     required
                   />
                   {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
@@ -179,8 +187,8 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-200 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors"
-                    placeholder="Your Email"
+                    className="w-full px-5 py-4 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-xl text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-yellow-400 transition-all shadow-inner"
+                    placeholder="john@example.com"
                     required
                   />
                   {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
@@ -193,8 +201,8 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-4 py-3 bg-gray-200 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-yellow-400 transition-colors resize-none"
-                    placeholder="Your Message"
+                    className="w-full px-5 py-4 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-xl text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-yellow-400 transition-all resize-none shadow-inner"
+                    placeholder="How can we help?"
                     required
                   />
                   {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
@@ -202,7 +210,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3 bg-blue-600 dark:bg-yellow-600 dark:text-gray-900 text-white font-bold rounded-lg hover:bg-blue-700 dark:hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2"
+                  className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-400 dark:from-yellow-500 dark:to-yellow-300 dark:text-gray-900 text-white font-black rounded-xl hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(59,130,246,0.3)] dark:hover:shadow-[0_10px_20px_rgba(234,179,8,0.3)] transition-all duration-300 flex items-center justify-center gap-3"
                 >
                   <Send size={20} />
                   <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
@@ -248,7 +256,7 @@ const Contact = () => {
                       href={social.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`text-gray-900 dark:text-gray-300 ${social.color} text-2xl transition-all transform hover:scale-110`}
+                      className={`text-gray-700 dark:text-gray-400 ${social.color} text-3xl transition-all duration-300 transform hover:scale-125 hover:-translate-y-2 hover:drop-shadow-lg`}
                       aria-label={social.name}
                     >
                       {social.icon}

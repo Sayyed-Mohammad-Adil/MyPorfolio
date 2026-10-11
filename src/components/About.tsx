@@ -5,6 +5,7 @@ import ContributionGrid from './ContributionGrid';
 
 
 const About = () => {
+  const [isCelebrating, setIsCelebrating] = useState(false);
   const [skillProgress, setSkillProgress] = useState({ frontend: 0, backend: 0, devops: 0, mobile: 0 });
   const [isVisible, setIsVisible] = useState(false);
 
@@ -59,19 +60,28 @@ const About = () => {
         </div>
 
         <div className="bg-white dark:bg-gray-950 rounded-lg p-4 sm:p-6 shadow-2xl border border-gray-200 dark:border-gray-800 mb-8">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-gray-200 border-gray-400 dark:border-gray-700 pb-4 mb-4 gap-4">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-gray-200 dark:border-gray-700 pb-4 mb-4 gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden">
-                <img src="/723a59af-6724-4a39-9949-defb49f5695f.jpg" alt="Avatar" className="w-full h-full object-cover" />
+              <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden ring-2 ring-blue-500/50 dark:ring-yellow-500/50 shadow-md flex-shrink-0">
+                <img src="/github-avatar.png" alt="Sayyed Mohammad Adil" className="w-full h-full object-cover" />
               </div>
-              <span className="text-gray-600 dark:text-gray-300 font-semibold text-sm sm:text-base">github.com/sayyedmohammadadil</span>
+              <a 
+                href="https://github.com/Sayyed-Mohammad-Adil"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-yellow-400 font-semibold text-sm sm:text-base transition-colors"
+              >
+                github.com/Sayyed-Mohammad-Adil
+              </a>
             </div>
           </div>
 
-          <ContributionGrid />
+          <ContributionGrid onCelebrate={setIsCelebrating} />
 
           <div className="text-center mt-10 mb-6">
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-code text-gray-900 dark:text-white mb-2">Sayyed Mohammad Adil</h3>
+            <h3 className={`text-xl sm:text-2xl lg:text-3xl font-bold font-code mb-2 transition-all duration-300 ${isCelebrating ? 'text-blue-500 dark:text-yellow-400 animate-sparkle scale-110 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)] dark:drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]' : 'text-gray-900 dark:text-white'}`}>
+              Sayyed Mohammad Adil
+            </h3>
             <p className="text-blue-400 dark:text-yellow-400 text-base sm:text-lg lg:text-xl">Full-Stack Developer & Open Source Enthusiast</p>
           </div>
 
@@ -88,7 +98,7 @@ const About = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto ">
-          <div className="bg-white dark:bg-gray-950 rounded-lg p-6 border border-gray-300 dark:border-gray-800 shadow-lg">
+          <div className="bg-white dark:bg-gray-950 rounded-lg p-6 border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-yellow-400 transition-colors shadow-lg">
             <h3 className="text-lg sm:text-xl font-bold font-code text-gray-900 dark:text-white mb-4 flex items-center gap-2">
               <User className="text-blue-400 dark:text-yellow-400" size={20} /> Who I Am
             </h3>
@@ -114,7 +124,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white dark:bg-gray-950 rounded-lg p-6 border border-gray-300 dark:border-gray-800 shadow-lg">
+          <div className="bg-white dark:bg-gray-950 rounded-lg p-6 border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-yellow-400 transition-colors shadow-lg">
             <h3 className="text-lg sm:text-xl font-bold font-code text-gray-900 dark:text-white mb-4 flex items-center gap-2">
               <Code className="text-blue-400 dark:text-yellow-400" size={20} /> My Toolbox
             </h3>

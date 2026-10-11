@@ -7,12 +7,25 @@ type ThemeContextType = { theme: Theme; toggleTheme: () => void };
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>(() => {
+    const saved = localStorage.getItem('theme') as Theme;
+    if (saved) return saved;
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  });
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme') as Theme;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setTheme(saved || (prefersDark ? 'dark' : 'light'));
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e: MediaQueryListEvent) => {
+      // Only change automatically if the user hasn't explicitly set a preference
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
   useEffect(() => {
@@ -37,7 +50,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 };
 
 export const useTheme = () => {
-  const context = React.useContext(ThemeContext);
+  const context = useContext(ThemeContext);
   if (!context) throw new Error('useTheme must be used within ThemeProvider');
   return context;
 };

@@ -15,7 +15,7 @@ const Footer = () => {
     {
       icon: <Github size={20} />,
       name: 'GitHub',
-      href: 'https://github.com/sayyedmohammadadil',
+      href: 'https://github.com/Sayyed-Mohammad-Adil',
       color: 'hover:text-gray-300',
     },
     {
@@ -48,7 +48,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white dark:bg-gray-950 py-16 relative flex items-center justify-center">
+    <footer id="footer" className="bg-white dark:bg-gray-950 py-16 relative flex items-center justify-center">
       {/* Pattern */}
       {/* <div className="absolute inset-0 bg-hero opacity-[.03]"></div> */}
             <div className="absolute inset-0 bg-hero-light dark:hidden opacity-[.20] z-0"></div>
