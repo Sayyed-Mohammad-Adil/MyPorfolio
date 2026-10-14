@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckSquare, ShoppingCart, User, Github, ExternalLink } from 'lucide-react';
+import { CheckSquare, ShoppingCart, Layers, Github, ExternalLink } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -22,13 +22,13 @@ const Projects = () => {
       liveUrl: 'https://elitesell.vercel.app/'
     },
     {
-      title: 'Portfolio',
-      description: 'My personal portfolio showcasing my work, built with HTML, TailwindCSS, and React.js.',
-      image: '/images/projects/Portfolio.png',
-      technologies: ['HTML', 'TailwindCSS', 'Alpine.js'],
-      icon: <User className="text-blue-400 dark:text-yellow-400 led-glow" />,
-      githubUrl: 'https://github.com/Sayyed-Mohammad-Adil/MyPorfolio',
-      liveUrl: 'https://sma-dev.lovable.app/'
+      title: 'MSQE',
+      description: 'Lightweight, partition-based message queue engine with wildcard routing, QoS delivery levels, and zero external infrastructure.',
+      image: '/images/projects/msqe.png',
+      technologies: ['TypeScript', 'Node.js', 'WebSocket', 'npm'],
+      icon: <Layers className="text-blue-400 dark:text-yellow-400 led-glow" />,
+      githubUrl: 'https://github.com/Sayyed-Mohammad-Adil/msqe-enterprise',
+      liveUrl: 'http://msqe.org/'
     }
   ];
 
