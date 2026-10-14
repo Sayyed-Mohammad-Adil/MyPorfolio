@@ -69,26 +69,26 @@ const TechStack: React.FC = () => {
   return (
     <section
       id="techstack"
-      className="relative h-20 bg-gray-300 dark:bg-gray-800/50 backdrop-blur-sm flex items-center justify-center overflow-hidden"
+      className="relative h-16 sm:h-20 bg-gray-200/80 dark:bg-gray-800/50 backdrop-blur-sm flex items-center justify-center overflow-hidden border-y border-gray-300/40 dark:border-gray-800/40"
     >
       <Marquee
         gradient={false}
-        speed={50}
+        speed={45}
         pauseOnHover
         loop={0}
-        className="flex items-center px-10"
+        className="flex items-center px-4 sm:px-10"
       >
         {technologies.map((tech, i) => (
           <div
             key={i}
-            className="flex items-center gap-2 mx-8 text-gray-900 dark:text-gray-300 whitespace-nowrap hover:opacity-90"
+            className="flex items-center gap-2 mx-4 sm:mx-8 text-gray-900 dark:text-gray-300 whitespace-nowrap hover:opacity-90 select-none"
           >
             <span
-              className={`text-2xl transition-transform duration-300 hover:scale-125 ${tech.color}`}
+              className={`text-xl sm:text-2xl transition-transform duration-300 hover:scale-125 ${tech.color}`}
             >
               {tech.icon}
             </span>
-            <span className="text-xl">{tech.name}</span>
+            <span className="text-sm sm:text-lg font-medium">{tech.name}</span>
           </div>
         ))}
       </Marquee>

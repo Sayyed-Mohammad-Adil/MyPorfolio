@@ -49,41 +49,43 @@ const Testimonials = () => {
   
 
   return (
-    <section id="reviews" className="py-20 bg-gray-100/50 dark:bg-gray-900/50 relative flex items-center justify-center">
-      <div className="max-w-6xl mx-auto px-4 lg:px-12 relative z-10">
+    <section id="reviews" className="py-14 sm:py-20 bg-gray-100/50 dark:bg-gray-900/50 relative flex items-center justify-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10 w-full">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold font-code inline-block relative text-gray-900 dark:text-white mb-1">
-            What <span className="text-blue-400 dark:text-yellow-400">Clients Say</span>
-            <div className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400 dark:bg-yellow-400 opacity-70"></div>
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-code inline-block relative text-gray-900 dark:text-white mb-1">
+            What <span className="text-blue-500 dark:text-yellow-400">Clients Say</span>
+            <div className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 dark:bg-yellow-500 opacity-70"></div>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto text-sm sm:text-base px-2">
             Hear from those who've worked with me about the impact of my code and collaboration.
           </p>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white dark:bg-gray-950 p-6 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-yellow-400 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+              className="bg-white dark:bg-gray-950 p-4 sm:p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-yellow-400 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 overflow-hidden">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.name} 
-                    className="w-12 h-12 object-cover"
-                  />
+              <div>
+                <div className="flex items-center mb-3 sm:mb-4">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0 ring-2 ring-blue-500/30 dark:ring-yellow-400/30">
+                    <img 
+                      src={testimonial.avatar} 
+                      alt={testimonial.name} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 ml-3 sm:ml-4">
+                    <h3 className="text-base sm:text-lg font-bold font-code text-gray-900 dark:text-white truncate">{testimonial.name}</h3>
+                    <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm truncate">{testimonial.role}</p>
+                  </div>
                 </div>
-                <div className="flex-1 ml-4">
-                  <h3 className="text-lg font-bold font-code text-gray-900 dark:text-white">{testimonial.name}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">{testimonial.role}</p>
-                </div>
+                <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm mb-4 leading-relaxed italic">"{testimonial.quote}"</p>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">{testimonial.quote}</p>
-              <div className="flex gap-1">
+              <div className="flex gap-1 pt-2">
                 <StarRating rating={testimonial.rating} />
               </div>
             </div>

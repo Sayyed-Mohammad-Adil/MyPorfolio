@@ -100,7 +100,7 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
             setIsFromContact(false);
             setIsOpen(true);
           }}
-          className="fixed bottom-6 left-6 z-40 flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/90 hover:bg-white text-gray-900 border border-blue-500/40 shadow-xl hover:scale-105 transition-all text-xs font-mono group dark:bg-gray-900/90 dark:hover:bg-black dark:text-gray-100 dark:border-yellow-500/40 dark:shadow-2xl"
+          className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-white/90 hover:bg-white text-gray-900 border border-blue-500/40 shadow-xl hover:scale-105 active:scale-95 transition-all text-xs font-mono group dark:bg-gray-900/90 dark:hover:bg-black dark:text-gray-100 dark:border-yellow-500/40 dark:shadow-2xl"
           title="Open Profile"
         >
           <Terminal size={14} className="text-blue-600 dark:text-yellow-400 group-hover:rotate-12 transition-transform" />
@@ -121,16 +121,16 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
               onClick={closeModal}
             />
 
-            {/* Zero-Scroll Modal Dialog Container (Side-by-Side 2-Column Terminal) */}
+            {/* Responsive Modal Dialog Container (Scrollable on small mobile screens, zero-scroll on desktop) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.94, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 15 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-4xl max-h-[92vh] bg-white/95 dark:bg-gray-950/95 border border-blue-500/40 dark:border-yellow-500/40 rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(59,130,246,0.2)] dark:shadow-[0_0_60px_rgba(234,179,8,0.2)] overflow-hidden flex flex-col z-10 font-mono text-gray-900 dark:text-gray-100"
+              className="relative w-full max-w-4xl max-h-[92vh] bg-white/95 dark:bg-gray-950/95 border border-blue-500/40 dark:border-yellow-500/40 rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(59,130,246,0.2)] dark:shadow-[0_0_60px_rgba(234,179,8,0.2)] overflow-y-auto md:overflow-hidden flex flex-col z-10 font-mono text-gray-900 dark:text-gray-100"
             >
               {/* Terminal Window Header Bar with integrated actions */}
-              <div className="flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-100/90 dark:bg-gray-900/90 border-b border-gray-200 dark:border-gray-800/80 select-none">
+              <div className="flex items-center justify-between px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-100/90 dark:bg-gray-900/90 border-b border-gray-200 dark:border-gray-800/80 select-none">
                 <div className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-red-500/90 hover:opacity-80 cursor-pointer shadow-sm" onClick={closeModal} title="Close"></span>
                   <span className="w-3 h-3 rounded-full bg-yellow-500/90 shadow-sm"></span>
@@ -203,7 +203,7 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
                   </div>
 
                   {/* High-Definition ASCII Character Matrix with Slow-Print Terminal Animation */}
-                  <div className="overflow-x-auto max-w-full flex flex-col items-center justify-center py-0.5 select-all min-h-[196px] sm:min-h-[212px]">
+                  <div className="overflow-x-auto max-w-full flex flex-col items-center justify-center py-0.5 select-all min-h-[175px] sm:min-h-[212px]">
                     <div className="flex flex-col items-center">
                       {ASCII_PORTRAIT_DATA.slice(0, visibleRows).map((row, rowIdx) => (
                         <div key={rowIdx} className="flex whitespace-nowrap leading-[1.0]">
@@ -211,7 +211,7 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
                             <span
                               key={colIdx}
                               style={{ color: cell.col }}
-                              className="inline-block text-[5.8px] sm:text-[6.5px] md:text-[7.4px] select-all font-mono font-bold leading-none text-center"
+                              className="inline-block text-[5.2px] sm:text-[6.5px] md:text-[7.4px] select-all font-mono font-bold leading-none text-center"
                             >
                               {cell.c}
                             </span>
@@ -249,31 +249,31 @@ const AsciiProfileModal: React.FC<AsciiProfileModalProps> = ({ isOpen: propIsOpe
                   </div>
 
                   {/* 3-Line Centered After Dark C ASCII Banner (Compact Font Size) */}
-                  <div className="w-full flex flex-col items-center justify-center space-y-0.5 sm:space-y-1 py-0.5">
+                  <div className="w-full flex flex-col items-center justify-center space-y-0.5 sm:space-y-1 py-0.5 overflow-x-auto">
                     {/* Line 1: SAYYED */}
                     <div className="w-full flex justify-center">
-                      <pre className="font-mono text-[2.8px] sm:text-[3.3px] md:text-[3.8px] leading-[1.0] tracking-tight text-blue-600 dark:text-yellow-400 font-bold select-all whitespace-pre text-center inline-block">
+                      <pre className="font-mono text-[2.4px] sm:text-[3.3px] md:text-[3.8px] leading-[1.0] tracking-tight text-blue-600 dark:text-yellow-400 font-bold select-all whitespace-pre text-center inline-block">
                         {ASCII_NAME_SAYYED}
                       </pre>
                     </div>
 
                     {/* Line 2: MOHAMMAD */}
                     <div className="w-full flex justify-center">
-                      <pre className="font-mono text-[2.1px] sm:text-[2.5px] md:text-[2.85px] leading-[1.0] tracking-tight text-blue-600 dark:text-yellow-400 font-bold select-all whitespace-pre text-center inline-block">
+                      <pre className="font-mono text-[1.8px] sm:text-[2.5px] md:text-[2.85px] leading-[1.0] tracking-tight text-blue-600 dark:text-yellow-400 font-bold select-all whitespace-pre text-center inline-block">
                         {ASCII_NAME_MOHAMMAD}
                       </pre>
                     </div>
 
                     {/* Line 3: ADIL */}
                     <div className="w-full flex justify-center">
-                      <pre className="font-mono text-[2.8px] sm:text-[3.3px] md:text-[3.8px] leading-[1.0] tracking-tight text-blue-600 dark:text-yellow-400 font-bold select-all whitespace-pre text-center inline-block">
+                      <pre className="font-mono text-[2.4px] sm:text-[3.3px] md:text-[3.8px] leading-[1.0] tracking-tight text-blue-600 dark:text-yellow-400 font-bold select-all whitespace-pre text-center inline-block">
                         {ASCII_NAME_ADIL}
                       </pre>
                     </div>
                   </div>
 
                   {/* Developer Terminal Specs */}
-                  <div className="pt-2 border-t border-gray-200 dark:border-gray-800/70 grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px] font-mono">
+                  <div className="pt-2 border-t border-gray-200 dark:border-gray-800/70 grid grid-cols-2 gap-1 sm:gap-1.5 text-[10px] sm:text-[11px] font-mono">
                     <div className="flex items-center gap-1.5">
                       <span className="text-emerald-600 dark:text-emerald-400 font-bold">$</span>
                       <span className="text-gray-500 dark:text-gray-400">ROLE:</span>

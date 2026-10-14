@@ -224,39 +224,48 @@ const ContributionGrid = ({ onCelebrate }: ContributionGridProps = {}) => {
   };
 
   return (
-    <div ref={gridRef} className="overflow-x-auto max-w-5xl mx-auto">
-      <div className="w-full flex flex-col relative">
-        {/* Month Labels */}
-        <div className="flex mb-1 pl-8">
-          {months.map((month, index) => (
-            <div key={index} className="text-xs text-gray-500 flex-shrink-0 w-[67.2px]">
-              {month}
-            </div>
-          ))}
-        </div>
-
-        <div className="flex items-center">
-          {/* Day Labels */}
-          <div className="flex flex-col justify-around h-full text-xs text-gray-500 pr-2 w-8">
-            <div>Mon</div>
-            <div>Wed</div>
-            <div>Fri</div>
-          </div>
-
-          {/* Contribution Grid */}
-          <div className="grid grid-flow-col auto-cols-min gap-1.5">
-            {Array.from({ length: 52 }).map((_, weekIndex) => (
-              <div key={weekIndex} className="flex flex-col gap-1.5">
-                {Array.from({ length: 7 }).map((_, dayIndex) => (
-                  <div
-                    key={dayIndex}
-                    className={`w-2 h-2 lg:w-3 lg:h-3 rounded-sm cursor-pointer ${getCellClass(weekIndex, dayIndex)}`}
-                    onMouseEnter={(e) => showTooltip(weekIndex, dayIndex, e)}
-                    onMouseLeave={hideTooltip}
-                  />
-                ))}
+    <div ref={gridRef} className="w-full">
+      <div className="text-[10px] text-gray-500 font-mono text-center sm:hidden mb-2 flex items-center justify-center gap-1">
+        <span>←</span> Swipe to explore activity <span>→</span>
+      </div>
+      <div className="overflow-x-auto max-w-5xl mx-auto pb-2 scrollbar-thin">
+        <div className="min-w-[680px] flex flex-col relative">
+          {/* Month Labels */}
+          <div className="flex mb-1 pl-8">
+            {months.map((month, index) => (
+              <div key={index} className="text-xs text-gray-500 flex-shrink-0 w-[67.2px]">
+                {month}
               </div>
             ))}
+          </div>
+
+          <div className="flex items-center">
+            {/* Day Labels */}
+            <div className="flex flex-col justify-around h-full text-xs text-gray-500 pr-2 w-8">
+              <div>Mon</div>
+              <div>Wed</div>
+              <div>Fri</div>
+            </div>
+
+            {/* Contribution Grid */}
+            <div className="grid grid-flow-col auto-cols-min gap-1.5">
+              {Array.from({ length: 52 }).map((_, weekIndex) => (
+                <div key={weekIndex} className="flex flex-col gap-1.5">
+                  {Array.from({ length: 7 }).map((_, dayIndex) => (
+                    <div
+                      key={dayIndex}
+                      className={`w-2 h-2 lg:w-3 lg:h-3 rounded-sm cursor-pointer ${getCellClass(weekIndex, dayIndex)}`}
+                      onMouseEnter={(e) => showTooltip(weekIndex, dayIndex, e)}
+                      onTouchStart={(e) => {
+                        const touch = e.touches[0];
+                        if (touch) showTooltip(weekIndex, dayIndex, { pageX: touch.pageX, pageY: touch.pageY } as any);
+                      }}
+                      onMouseLeave={hideTooltip}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

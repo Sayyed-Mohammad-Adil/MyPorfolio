@@ -116,37 +116,37 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       </div>
 
       {/* HUD Corner Accents */}
-      <div className="absolute inset-6 md:inset-10 pointer-events-none">
+      <div className="absolute inset-4 sm:inset-6 md:inset-10 pointer-events-none">
         <div
-          className={`absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 transition-colors duration-500 ${
+          className={`absolute top-0 left-0 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 transition-colors duration-500 ${
             isDark ? 'border-cyan-500/40' : 'border-blue-600/40'
           }`}
         />
         <div
-          className={`absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 transition-colors duration-500 ${
+          className={`absolute top-0 right-0 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-r-2 transition-colors duration-500 ${
             isDark ? 'border-cyan-500/40' : 'border-blue-600/40'
           }`}
         />
         <div
-          className={`absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 transition-colors duration-500 ${
+          className={`absolute bottom-0 left-0 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-l-2 transition-colors duration-500 ${
             isDark ? 'border-cyan-500/40' : 'border-blue-600/40'
           }`}
         />
         <div
-          className={`absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 transition-colors duration-500 ${
+          className={`absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 transition-colors duration-500 ${
             isDark ? 'border-cyan-500/40' : 'border-blue-600/40'
           }`}
         />
 
         {/* Top Status Badges */}
-        <div className="absolute top-0 left-12 flex items-center gap-2 text-xs font-mono opacity-60">
-          <Terminal size={14} className={isDark ? 'text-cyan-400' : 'text-blue-600'} />
+        <div className="absolute top-0 left-8 sm:left-12 flex items-center gap-2 text-[10px] sm:text-xs font-mono opacity-60">
+          <Terminal size={13} className={isDark ? 'text-cyan-400' : 'text-blue-600'} />
           <span className={isDark ? 'text-cyan-300' : 'text-blue-700'}>
             SYS.PORTFOLIO // v2.0
           </span>
         </div>
 
-        <div className="absolute top-0 right-12 hidden sm:flex items-center gap-2 text-xs font-mono opacity-60">
+        <div className="absolute top-0 right-8 sm:right-12 hidden sm:flex items-center gap-2 text-xs font-mono opacity-60">
           <span
             className={`w-2 h-2 rounded-full animate-ping ${
               isDark ? 'bg-amber-400' : 'bg-blue-600'
@@ -160,7 +160,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
       {/* Central HUD Loading Orb */}
       <div className="relative flex flex-col items-center justify-center z-10 px-4 pointer-events-none">
-        <div className="relative flex items-center justify-center w-48 h-48 sm:w-56 sm:h-56">
+        <div className="relative flex items-center justify-center w-40 h-40 sm:w-56 sm:h-56">
           {/* Outer Slow Rotating Dashed Ring */}
           <motion.div
             animate={{ rotate: 360 }}
@@ -174,7 +174,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
-            className={`absolute inset-4 rounded-full border-t-2 border-b-2 transition-colors duration-500 ${
+            className={`absolute inset-3 sm:inset-4 rounded-full border-t-2 border-b-2 transition-colors duration-500 ${
               isDark
                 ? 'border-t-cyan-400 border-b-amber-400 opacity-80'
                 : 'border-t-blue-600 border-b-indigo-500 opacity-80'
@@ -185,7 +185,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           <motion.div
             animate={{ scale: [0.95, 1.05, 0.95], opacity: [0.6, 0.9, 0.6] }}
             transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-            className={`absolute inset-8 rounded-full border transition-colors duration-500 shadow-lg ${
+            className={`absolute inset-6 sm:inset-8 rounded-full border transition-colors duration-500 shadow-lg ${
               isDark
                 ? 'border-cyan-400/50 shadow-cyan-500/20 bg-gray-900/40 backdrop-blur-sm'
                 : 'border-blue-400/40 shadow-blue-500/20 bg-white/40 backdrop-blur-sm'
@@ -202,20 +202,20 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
             >
               {displayProgress >= 100 ? (
                 <Sparkles
-                  className={`w-6 h-6 animate-pulse ${
+                  className={`w-5 h-5 sm:w-6 sm:h-6 animate-pulse ${
                     isDark ? 'text-amber-400' : 'text-blue-600'
                   }`}
                 />
               ) : (
                 <Code
-                  className={`w-6 h-6 ${
+                  className={`w-5 h-5 sm:w-6 sm:h-6 ${
                     isDark ? 'text-cyan-400' : 'text-blue-600'
                   }`}
                 />
               )}
             </motion.div>
 
-            <div className="text-4xl sm:text-5xl font-black tracking-tight font-mono">
+            <div className="text-3xl sm:text-5xl font-black tracking-tight font-mono">
               <span
                 className={`bg-clip-text text-transparent bg-gradient-to-r transition-all duration-300 ${
                   isDark
@@ -230,7 +230,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         </div>
 
         {/* Sleek Linear Progress Bar */}
-        <div className="w-64 sm:w-80 mt-8">
+        <div className="w-52 sm:w-80 mt-6 sm:mt-8">
           <div
             className={`h-1.5 w-full rounded-full overflow-hidden transition-colors duration-500 ${
               isDark

@@ -47,21 +47,21 @@ const About = () => {
   const technologies = ['JavaScript', 'React', 'Node.js', 'TypeScript', 'TailwindCSS', 'Python', 'Docker', 'Git'];
 
   return (
-    <section id="about" className="py-20 lg:py-20 px-4 sm:px-6 md:px-8 bg-gray-100/50 dark:bg-gray-900/50 relative overflow-hidden">
+    <section id="about" className="py-14 sm:py-20 px-3 sm:px-6 md:px-8 bg-gray-100/50 dark:bg-gray-900/50 relative overflow-hidden">
       <div className="max-w-5xl mx-auto w-full relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-code inline-block relative text-gray-900 dark:text-white mb-1">
-            About <span className="text-blue-400 dark:text-yellow-400">Me</span>
+            About <span className="text-blue-500 dark:text-yellow-400">Me</span>
             <div className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 dark:bg-yellow-500 opacity-70"></div>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto text-sm sm:text-base px-2">
             Passionate developer with a love for clean code, strong coffee, and open source contributions.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-950 rounded-lg p-4 sm:p-6 shadow-2xl border border-gray-200 dark:border-gray-800 mb-8">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-gray-200 dark:border-gray-700 pb-4 mb-4 gap-4">
-            <div className="flex items-center gap-2">
+        <div className="bg-white dark:bg-gray-950 rounded-2xl p-3.5 sm:p-6 shadow-xl border border-gray-200 dark:border-gray-800 mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-gray-200 dark:border-gray-800 pb-3 sm:pb-4 mb-4 gap-3 sm:gap-4">
+            <div className="flex items-center gap-2.5">
               <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden ring-2 ring-blue-500/50 dark:ring-yellow-500/50 shadow-md flex-shrink-0">
                 <img src="/github-avatar.png" alt="Sayyed Mohammad Adil" className="w-full h-full object-cover" />
               </div>
@@ -69,7 +69,7 @@ const About = () => {
                 href="https://github.com/Sayyed-Mohammad-Adil"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-yellow-400 font-semibold text-sm sm:text-base transition-colors"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-yellow-400 font-semibold text-xs sm:text-base transition-colors truncate"
               >
                 github.com/Sayyed-Mohammad-Adil
               </a>
@@ -78,55 +78,57 @@ const About = () => {
 
           <ContributionGrid onCelebrate={setIsCelebrating} />
 
-          <div className="text-center mt-10 mb-6">
-            <h3 className={`text-xl sm:text-2xl lg:text-3xl font-bold font-code mb-2 transition-all duration-300 ${isCelebrating ? 'text-blue-500 dark:text-yellow-400 animate-sparkle scale-110 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)] dark:drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]' : 'text-gray-900 dark:text-white'}`}>
+          <div className="text-center mt-6 sm:mt-10 mb-5 sm:mb-6 px-2">
+            <h3 className={`text-xl sm:text-2xl lg:text-3xl font-bold font-code mb-1 sm:mb-2 transition-all duration-300 ${isCelebrating ? 'text-blue-500 dark:text-yellow-400 animate-sparkle scale-105 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)] dark:drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]' : 'text-gray-900 dark:text-white'}`}>
               Sayyed Mohammad Adil
             </h3>
-            <p className="text-blue-400 dark:text-yellow-400 text-base sm:text-lg lg:text-xl">Full-Stack Developer & Open Source Enthusiast</p>
+            <p className="text-blue-500 dark:text-yellow-400 text-sm sm:text-lg lg:text-xl font-medium">Full-Stack Developer & Open Source Enthusiast</p>
           </div>
 
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-2 sm:mb-4">
             <a
               href="https://github.com/Sayyed-Mohammad-Adil/MyPorfolio"
-              className="inline-flex items-center gap-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg border border-gray-300 dark:border-gray-600 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-semibold py-2 px-3 sm:py-3 sm:px-6 rounded-xl border border-gray-300 dark:border-gray-600 transition-all transform hover:scale-105 shadow-md text-xs sm:text-base"
             >
-              <Github size={18} className="text-blue-400 dark:text-yellow-400" />
-              Fork My Portfolio
-              <span className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full px-2 py-0.5 ml-1">14</span>
+              <Github size={16} className="text-blue-500 dark:text-yellow-400 shrink-0" />
+              <span>Fork My Portfolio</span>
+              <span className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-[11px] rounded-full px-2 py-0.5 ml-0.5 font-mono">14</span>
             </a>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto ">
-          <div className="bg-white dark:bg-gray-950 rounded-lg p-6 border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-yellow-400 transition-colors shadow-lg">
-            <h3 className="text-lg sm:text-xl font-bold font-code text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-              <User className="text-blue-400 dark:text-yellow-400" size={20} /> Who I Am
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 max-w-5xl mx-auto">
+          <div className="bg-white dark:bg-gray-950 rounded-2xl p-4 sm:p-6 border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-yellow-400 transition-colors shadow-lg">
+            <h3 className="text-base sm:text-xl font-bold font-code text-gray-900 dark:text-white mb-3 sm:mb-4 flex items-center gap-2">
+              <User className="text-blue-500 dark:text-yellow-400" size={18} /> Who I Am
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed text-sm sm:text-base">
+            <p className="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 leading-relaxed text-xs sm:text-sm md:text-base">
               I'm a passionate developer with 4+ years of experience building web applications and contributing to open source projects.
             </p>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-xs sm:text-sm md:text-base">
               When I'm not coding, I explore tech trends, write blogs, or enjoy debugging with coffee.
             </p>
 
-            <div className="mt-6 grid grid-cols-3 gap-2 text-center">
-              <div className="bg-gray-700/20 p-3 rounded">
-                <div className="text-xl font-bold text-blue-400 dark:text-yellow-400">50</div>
-                <div className="text-xs text-gray-400">Repositories</div>
+            <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 text-center">
+              <div className="bg-gray-100 dark:bg-gray-800/50 p-2 sm:p-3 rounded-xl border border-gray-200 dark:border-gray-800">
+                <div className="text-lg sm:text-xl font-bold text-blue-500 dark:text-yellow-400 font-code">50+</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">Repositories</div>
               </div>
-              <div className="bg-gray-700/20 p-3 rounded">
-                <div className="text-xl font-bold text-blue-400 dark:text-yellow-400">1k</div>
-                <div className="text-xs text-gray-400">Commits</div>
+              <div className="bg-gray-100 dark:bg-gray-800/50 p-2 sm:p-3 rounded-xl border border-gray-200 dark:border-gray-800">
+                <div className="text-lg sm:text-xl font-bold text-blue-500 dark:text-yellow-400 font-code">1k+</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">Commits</div>
               </div>
-              <div className="bg-gray-700/20 p-3 rounded">
-                <div className="text-xl font-bold text-blue-400 dark:text-yellow-400">10</div>
-                <div className="text-xs text-gray-400">PRs Merged</div>
+              <div className="bg-gray-100 dark:bg-gray-800/50 p-2 sm:p-3 rounded-xl border border-gray-200 dark:border-gray-800">
+                <div className="text-lg sm:text-xl font-bold text-blue-500 dark:text-yellow-400 font-code">10+</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">PRs Merged</div>
               </div>
             </div>
           </div>
-          <div className="bg-white dark:bg-gray-950 rounded-lg p-6 border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-yellow-400 transition-colors shadow-lg">
-            <h3 className="text-lg sm:text-xl font-bold font-code text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-              <Code className="text-blue-400 dark:text-yellow-400" size={20} /> My Toolbox
+          <div className="bg-white dark:bg-gray-950 rounded-2xl p-4 sm:p-6 border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-yellow-400 transition-colors shadow-lg">
+            <h3 className="text-base sm:text-xl font-bold font-code text-gray-900 dark:text-white mb-3 sm:mb-4 flex items-center gap-2">
+              <Code className="text-blue-500 dark:text-yellow-400" size={18} /> My Toolbox
             </h3>
 
             <div className="space-y-4">

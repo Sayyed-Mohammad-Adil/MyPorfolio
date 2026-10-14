@@ -1688,11 +1688,11 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = (props) => {
   const { theme } = useTheme();
 
   return (
-    <div className="w-full h-[50vh] md:h-[65vh] xl:h-[80vh] min-h-[400px] relative cursor-grab active:cursor-grabbing rounded-2xl overflow-hidden bg-transparent">
+    <div className="w-full h-[38vh] sm:h-[52vh] md:h-[65vh] xl:h-[80vh] min-h-[270px] sm:min-h-[380px] md:min-h-[450px] relative cursor-grab active:cursor-grabbing rounded-2xl overflow-hidden bg-transparent touch-pan-y">
       {/* 3D Canvas */}
       <Canvas shadows camera={{ position: [0, 2.5, 17], fov: 42 }}>
         <OrbitControls
-          enableZoom={true}
+          enableZoom={false}
           enablePan={false}
           minDistance={1}
           maxDistance={30}
@@ -1703,8 +1703,8 @@ const WorkspaceIllustration: React.FC<WorkspaceIllustrationProps> = (props) => {
           <Scene {...props} theme={theme} />
         </Suspense>
       </Canvas>
-      <div className="absolute bottom-4 right-4 bg-black/50 text-white text-[10px] px-3 py-1 rounded-full backdrop-blur-md pointer-events-none z-10 border border-white/10">
-        Drag to rotate
+      <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-black/60 text-white text-[9px] sm:text-[10px] px-2.5 py-1 rounded-full backdrop-blur-md pointer-events-none z-10 border border-white/15">
+        Drag to rotate 3D
       </div>
     </div>
   );

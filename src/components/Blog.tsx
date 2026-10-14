@@ -278,61 +278,62 @@ const Blog = () => {
 
       {/* Fullscreen Modal */}
       {selectedPost && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10">
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-md" onClick={closeModal}></div>
-          <div className="modal-content relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-gray-950 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-800 overflow-y-auto flex flex-col">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 md:p-8">
+          <div className="absolute inset-0 bg-black/75 backdrop-blur-md" onClick={closeModal}></div>
+          <div className="modal-content relative w-full max-w-4xl max-h-[92vh] bg-white dark:bg-gray-950 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-800 overflow-y-auto flex flex-col">
             
-            <div className="sticky top-0 w-full flex justify-end p-6 bg-gradient-to-b from-white dark:from-gray-950 to-transparent z-10 pointer-events-none">
+            <div className="sticky top-0 w-full flex justify-end p-3 sm:p-5 bg-gradient-to-b from-white dark:from-gray-950 to-transparent z-10 pointer-events-none">
               <button 
                 onClick={closeModal}
-                className="w-12 h-12 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 text-gray-900 dark:text-white rounded-full flex items-center justify-center pointer-events-auto transition-colors shadow-lg"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 text-gray-900 dark:text-white rounded-full flex items-center justify-center pointer-events-auto transition-colors shadow-lg border border-gray-200 dark:border-gray-800"
+                aria-label="Close article"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
             </div>
 
-            <div className="p-8 md:p-16 pt-0">
+            <div className="p-4 sm:p-8 md:p-14 pt-0">
               {/* Modal Cover Image - Full Uncropped View */}
-              <div className="w-full rounded-2xl overflow-hidden relative mb-8 border border-gray-200 dark:border-gray-800 shadow-xl bg-gray-950/80 flex items-center justify-center p-1 sm:p-2">
+              <div className="w-full rounded-xl sm:rounded-2xl overflow-hidden relative mb-4 sm:mb-8 border border-gray-200 dark:border-gray-800 shadow-xl bg-gray-950 flex items-center justify-center p-1 sm:p-2">
                 <img 
                   src={selectedPost.image} 
                   alt={selectedPost.title} 
-                  className="w-full h-auto max-h-[65vh] object-contain rounded-xl shadow-lg"
+                  className="w-full h-auto max-h-[50vh] sm:max-h-[65vh] object-contain rounded-lg sm:rounded-xl shadow-lg"
                 />
               </div>
 
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-blue-500 dark:text-yellow-400 font-bold tracking-widest uppercase text-sm">{selectedPost.tag}</span>
-                <span className="w-1.5 h-1.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span>
-                <span className="text-gray-500 font-mono text-sm">{selectedPost.date}</span>
-                <span className="w-1.5 h-1.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span>
-                <span className="text-gray-500 font-mono text-sm">{selectedPost.readTime}</span>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6 text-xs sm:text-sm">
+                <span className="text-blue-500 dark:text-yellow-400 font-bold tracking-widest uppercase">{selectedPost.tag}</span>
+                <span className="w-1 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></span>
+                <span className="text-gray-500 font-mono">{selectedPost.date}</span>
+                <span className="w-1 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></span>
+                <span className="text-gray-500 font-mono">{selectedPost.readTime}</span>
               </div>
               
-              <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-8 leading-tight tracking-tighter">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-black text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight tracking-tight">
                 {selectedPost.title}
               </h2>
               
-              <div className="prose prose-lg dark:prose-invert max-w-none">
-                <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-8 font-medium">
+              <div className="prose prose-sm sm:prose-base md:prose-lg dark:prose-invert max-w-none">
+                <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6 font-medium">
                   {selectedPost.excerpt}
                 </p>
-                <div className="h-px w-full bg-gray-200 dark:bg-gray-800 mb-8"></div>
-                <p className="text-gray-800 dark:text-gray-300 leading-loose whitespace-pre-line text-base md:text-lg">
+                <div className="h-px w-full bg-gray-200 dark:bg-gray-800 mb-6"></div>
+                <p className="text-gray-800 dark:text-gray-300 leading-relaxed whitespace-pre-line text-xs sm:text-sm md:text-base">
                   {selectedPost.content}
                 </p>
               </div>
 
               {(selectedPost as any).url && (
-                <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800 flex justify-end">
+                <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200 dark:border-gray-800 flex justify-end">
                   <a
                     href={(selectedPost as any).url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 dark:bg-yellow-500 text-white dark:text-gray-950 font-bold rounded-xl hover:opacity-90 transition-opacity shadow-lg"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-blue-600 dark:bg-yellow-500 text-white dark:text-gray-950 font-bold rounded-xl hover:opacity-90 transition-opacity shadow-lg text-xs sm:text-sm"
                   >
                     <span>Read Original on Hashnode</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                   </a>
                 </div>
               )}
